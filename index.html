@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Matriz de conveniencia + estimación de costos de almacenamiento para el gestor documental de Next Talent.">
+<meta name="description" content="Gestor documental de Next Talent: un solo lugar para los documentos de toda la empresa, liviano y economico.">
 <title>Matriz de conveniencia — Plataforma documental · Next Talent Solutions</title>
 <style>
   :root {
@@ -343,7 +343,7 @@
       <span class="eyebrow kicker-line">Análisis de decisión · Sprint · Tarea #6</span>
       <h1 style="margin-top:0.7rem;">Matriz de conveniencia:<br>¿qué <em>gestor documental</em> conviene?</h1>
     </div>
-    <p class="hero-lead">Comparación ponderada de 8 alternativas para gestionar documentos <b>en todo Next Talent</b> —no solo el HRM: también sus cotizaciones, CRM y facturas, y los documentos de todos los clientes— sin poner lento el sistema y sin gastar de más.</p>
+    <p class="hero-lead">Comparación ponderada de 8 alternativas para guardar los documentos de <b>todo Next Talent</b> en un solo lugar —el HRM, las cotizaciones, el CRM, las facturas y los documentos de todos los clientes— de la forma más simple, liviana y económica.</p>
     <div class="hero-meta">
       <span><b>Alcance:</b> HRM + CRM + facturación + docs propios · todos los tenants</span>
       <span><b>Infra:</b> Oracle Cloud · RAM ajustada</span>
@@ -376,7 +376,7 @@
       </div>
       <div>
         <h2>Recomendación: un <span>servicio documental compartido y separado</span>, sobre almacén de objetos.</h2>
-        <p>Un servicio de documentos <b>aparte del HRM</b>, montado sobre un <span class="term" title="Almacén de objetos compatible con S3, liviano, autohospedado.">almacén de objetos (MinIO/S3)</span>, que sirve a todos: HRM, CRM, facturación y los documentos propios de Next Talent. Los archivos se suben <b>directo al almacén</b> con una <span class="term" title="Permiso temporal para subir/bajar sin pasar por el servidor del HRM.">URL firmada</span>, así el HRM nunca carga su peso ni se pone lento. Un índice liviano lleva el radicado (área + código + consecutivo) igual para todos los productos. Es lo que pedía el equipo —<b>separado</b>— pero liviano y barato, no un DMS pesado.</p>
+        <p>Un solo lugar para los documentos de todos: HRM, CRM, facturación y los propios de Next Talent. Montado sobre un <span class="term" title="Almacén de objetos compatible con S3, liviano, autohospedado.">almacén de objetos (MinIO/S3)</span> liviano y barato, con el radicado (área + código + consecutivo) igual para todos los productos. Ordenado, económico y —al ir separado del sistema— sin volverlo pesado.</p>
       </div>
     </div>
   </section>
@@ -419,7 +419,7 @@
     <div class="sec-head">
       <span class="eyebrow kicker-line">Cómo se puntúa</span>
       <h2>13 criterios ponderados</h2>
-      <p class="prose">Los pesos suman 100 y reflejan las prioridades del equipo: no frenar el HRM y servir a todos los productos. Cada opción se califica <b>1 (deficiente) a 5 (óptimo)</b> por criterio.</p>
+      <p class="prose">Los pesos suman 100 y reflejan las prioridades: que sea liviano para todos y sirva a todos los productos. Cada opción se califica <b>1 (deficiente) a 5 (óptimo)</b> por criterio.</p>
     </div>
     <div class="weights" id="weights"></div>
   </section>
@@ -477,7 +477,7 @@
       <div class="rec-body">
 
         <div class="flow">
-          <div class="flow-title">El archivo nunca pasa por el HRM</div>
+          <div class="flow-title">Un solo almacén para los documentos de toda la empresa</div>
           <div class="flow-row">
             <div class="flow-col">
               <div class="flow-node apps"><div class="fn-t">HRM</div><div class="fn-s">talento humano</div></div>
@@ -494,11 +494,11 @@
               <div class="flow-node side"><div class="fn-t">DocuSeal</div><div class="fn-s">deja el PDF firmado</div></div>
             </div>
           </div>
-          <p class="flow-note">El navegador sube el documento <b>directo al almacén</b> con la URL firmada. El HRM solo guarda el número y los datos —liviano—, así <b>nunca se pone lento</b> aunque alguien suba archivos grandes.</p>
+          <p class="flow-note">Cada producto guarda sus documentos en el mismo almacén y solo se queda con el número. Todo queda en un lugar ordenado y, al no pasar por dentro del HRM, el sistema se mantiene rápido.</p>
         </div>
 
         <div class="why-grid">
-          <div class="why"><h4>El HRM no se frena</h4><p>Los archivos van directo al almacén, no por el servidor del HRM. Quien trabaja talento humano no siente lentitud aunque otro suba documentos pesados.</p></div>
+          <div class="why"><h4>Todo sigue rápido</h4><p>Los documentos se guardan aparte, así el sistema se mantiene ágil aunque se suban archivos grandes.</p></div>
           <div class="why"><h4>Sirve a todos</h4><p>Un solo lugar para el HRM, el CRM, las facturas y los documentos propios de Next Talent, y para todos los clientes. No hay que montar uno por cada cosa.</p></div>
           <div class="why"><h4>Radicado igual para todo</h4><p>El índice pone el área + código + consecutivo con la misma regla en todos los productos. Numeración consistente, no una por sistema.</p></div>
           <div class="why"><h4>Barato y liviano</h4><p>El almacén de objetos es ligero; no es un DMS pesado tipo Alfresco. Cumple “separado” sin comerse la RAM del servidor.</p></div>
@@ -737,7 +737,7 @@
 
 <script>
   const CRITERIA = [
-    { name: "Aislamiento de rendimiento (no frena el HRM)", w: 15, why: "Prioridad del equipo: subir archivos no debe poner lento el sistema." },
+    { name: "Mantiene el sistema rápido y liviano", w: 15, why: "Subir documentos no debe volver lento el sistema para nadie." },
     { name: "Alcance multi-producto (HRM + CRM + facturas + docs de NTS)", w: 13, why: "Sirve a toda la empresa y a todos los clientes, no solo un HRM." },
     { name: "Costo de infraestructura (RAM/CPU/disco)", w: 13, why: "No comprar más servidor ni saturar la RAM ajustada." },
     { name: "Radicado global: área + código + consecutivo", w: 10, why: "Requisito del sprint; consistente en todos los productos." },
