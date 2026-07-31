@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Matriz de conveniencia (v2): servicio documental compartido y separado para todo Next Talent.">
+<meta name="description" content="Matriz de conveniencia: servicio documental compartido y separado para todo Next Talent.">
 <title>Matriz de conveniencia — Plataforma documental · Next Talent Solutions</title>
 <style>
   :root {
@@ -100,19 +100,6 @@
   .hero-lead { font-size: clamp(1.02rem, 1.9vw, 1.22rem); color: var(--ink-soft); max-width: 64ch; }
   .hero-meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; font-size: 0.82rem; color: var(--ink-mute); }
   .hero-meta b { color: var(--ink-soft); font-weight: 600; }
-
-  /* Review banner (what changed) */
-  .review-banner { display: grid; grid-template-columns: auto 1fr; gap: 1.1rem 1.4rem; align-items: start;
-    background: color-mix(in srgb, var(--brand-orange) 12%, var(--surface));
-    border: 1px solid color-mix(in srgb, var(--brand-orange) 42%, var(--line));
-    border-radius: var(--radius); padding: 1.3rem 1.5rem; box-shadow: var(--shadow-sm); }
-  .review-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: #fff;
-    background: var(--brand-orange); padding: 0.4rem 0.7rem; border-radius: 999px; white-space: nowrap; margin-top: 0.15rem; }
-  .review-banner h3 { font-size: 1.12rem; font-weight: 760; margin-bottom: 0.5rem; }
-  .review-banner .rlist { display: grid; gap: 0.55rem; margin-top: 0.4rem; }
-  .review-banner .ri { display: grid; grid-template-columns: auto 1fr; gap: 0.6rem; font-size: 0.9rem; color: var(--ink-soft); }
-  .review-banner .ri b { color: var(--ink); }
-  .review-banner .ri .n { font-weight: 800; color: var(--brand-orange); font-variant-numeric: tabular-nums; }
 
   /* Verdict */
   .verdict { display: grid; grid-template-columns: auto 1fr; gap: 1.2rem 1.5rem; align-items: center;
@@ -323,7 +310,7 @@
   footer .prose { display: grid; gap: 0.35rem; }
 
   @media (max-width: 620px) {
-    .verdict, .review-banner { grid-template-columns: 1fr; text-align: left; }
+    .verdict { grid-template-columns: 1fr; text-align: left; }
     .verdict-badge { width: 92px; height: 92px; }
   }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
@@ -334,7 +321,7 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow kicker-line">Análisis de decisión · Sprint · Tarea #6 · Revisión v2</span>
+      <span class="eyebrow kicker-line">Análisis de decisión · Sprint · Tarea #6</span>
       <h1 style="margin-top:0.7rem;">Matriz de conveniencia:<br>¿qué <em>gestor documental</em> conviene?</h1>
     </div>
     <p class="hero-lead">Comparación ponderada de 8 alternativas para gestionar documentos <b>en todo Next Talent</b> —no solo el HRM: también sus cotizaciones, CRM y facturas, y los documentos de todos los clientes— sin poner lento el sistema y sin gastar de más.</p>
@@ -350,20 +337,6 @@
 <main class="wrap">
 
   <section>
-    <div class="review-banner">
-      <span class="review-badge">Se corrigió</span>
-      <div>
-        <h3>Por qué esta versión cambia la recomendación anterior</h3>
-        <p style="font-size:0.9rem;color:var(--ink-soft);max-width:74ch;">La primera versión proponía guardar todo dentro del HRM. La revisión técnica del equipo sumó dos restricciones que lo desaconsejan:</p>
-        <div class="rlist">
-          <div class="ri"><span class="n">1</span><span><b>No es solo para el cliente, es para todos.</b> También hay que guardar documentos propios de Next Talent (cotizaciones, CRM, facturas). Eso no cabe dentro del HRM de un solo cliente: necesita un lugar compartido.</span></div>
-          <div class="ri"><span class="n">2</span><span><b>El HRM no se puede poner lento.</b> Subir archivos pesados por dentro del HRM consume recursos y frena a quien esté trabajando talento humano. El almacenamiento debe ir <b>separado</b> del sistema interactivo.</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding-top:0;">
     <div class="defbox">
       <h3>Primero, en fácil: ¿qué es un gestor documental (DMS)?</h3>
       <p><b>DMS</b> = <i>Document Management System</i>, o gestor documental. En palabras simples: un <b>archivador digital ordenado</b> que guarda cada documento, le pone un número, sabe cuál es la última versión, controla quién lo puede ver y cuánto tiempo hay que conservarlo. Estos son los términos que aparecen más abajo:</p>
@@ -383,7 +356,7 @@
         <span class="lbl">Conveniencia</span>
       </div>
       <div>
-        <h2>Recomendación corregida: un <span>servicio documental compartido y separado</span>, sobre almacén de objetos.</h2>
+        <h2>Recomendación: un <span>servicio documental compartido y separado</span>, sobre almacén de objetos.</h2>
         <p>Un servicio de documentos <b>aparte del HRM</b>, montado sobre un <span class="term" title="Almacén de objetos compatible con S3, liviano, autohospedado.">almacén de objetos (MinIO/S3)</span>, que sirve a todos: HRM, CRM, facturación y los documentos propios de Next Talent. Los archivos se suben <b>directo al almacén</b> con una <span class="term" title="Permiso temporal para subir/bajar sin pasar por el servidor del HRM.">URL firmada</span>, así el HRM nunca carga su peso ni se pone lento. Un índice liviano lleva el radicado (área + código + consecutivo) igual para todos los productos. Es lo que pedía el equipo —<b>separado</b>— pero liviano y barato, no un DMS pesado.</p>
       </div>
     </div>
@@ -421,17 +394,13 @@
         <span class="flag risk"><span class="dot"></span>Sin hogar hoy</span>
       </div>
     </div>
-    <div class="callout">
-      <div class="bar" aria-hidden="true"></div>
-      <p><b>La pregunta correcta no es “¿qué DMS instalo?”</b> sino “¿dónde viven los documentos de <b>toda</b> la empresa sin frenar el HRM?”. Por eso esta versión pesa fuerte dos cosas nuevas: <b>aislar el rendimiento</b> y <b>servir a todos los productos</b>, no solo a un HRM.</p>
-    </div>
   </section>
 
   <section>
     <div class="sec-head">
       <span class="eyebrow kicker-line">Cómo se puntúa</span>
       <h2>13 criterios ponderados</h2>
-      <p class="prose">Los pesos suman 100 y ahora reflejan las dos restricciones nuevas del equipo, marcadas como <b>nuevo</b>. Cada opción se califica <b>1 (deficiente) a 5 (óptimo)</b> por criterio.</p>
+      <p class="prose">Los pesos suman 100 y reflejan las prioridades del equipo: no frenar el HRM y servir a todos los productos. Cada opción se califica <b>1 (deficiente) a 5 (óptimo)</b> por criterio.</p>
     </div>
     <div class="weights" id="weights"></div>
   </section>
@@ -440,7 +409,7 @@
     <div class="sec-head">
       <span class="eyebrow kicker-line">La matriz</span>
       <h2>Puntaje por criterio, las 8 opciones</h2>
-      <p class="prose">Verde = fortaleza, rojo = debilidad. El total pondera cada celda por el peso del criterio. Los criterios nuevos van con ★.</p>
+      <p class="prose">Verde = fortaleza, rojo = debilidad. El total pondera cada celda por el peso del criterio.</p>
     </div>
     <div class="matrix-scroll">
       <table class="matrix" id="matrix">
@@ -462,7 +431,7 @@
     <div class="sec-head">
       <span class="eyebrow kicker-line">Resultado</span>
       <h2>Ranking de conveniencia</h2>
-      <p class="prose">El servicio documental compartido se despega. La opción “todo dentro del HRM” —antes la recomendada— baja a segundo lugar: sigue siendo buena, pero pierde justo en las dos restricciones nuevas.</p>
+      <p class="prose">El servicio documental compartido se despega. Guardar todo dentro del HRM queda en segundo lugar: sigue siendo una opción sólida, pero pierde justo en rendimiento y alcance.</p>
     </div>
     <div class="rank-list" id="ranking"></div>
   </section>
@@ -695,8 +664,8 @@
 
 <script>
   const CRITERIA = [
-    { name: "Aislamiento de rendimiento (no frena el HRM)", w: 15, isNew: true, why: "Restricción del equipo: subir archivos no debe poner lento el sistema." },
-    { name: "Alcance multi-producto (HRM + CRM + facturas + docs de NTS)", w: 13, isNew: true, why: "Sirve a toda la empresa y a todos los clientes, no solo un HRM." },
+    { name: "Aislamiento de rendimiento (no frena el HRM)", w: 15, why: "Prioridad del equipo: subir archivos no debe poner lento el sistema." },
+    { name: "Alcance multi-producto (HRM + CRM + facturas + docs de NTS)", w: 13, why: "Sirve a toda la empresa y a todos los clientes, no solo un HRM." },
     { name: "Costo de infraestructura (RAM/CPU/disco)", w: 13, why: "No comprar más servidor ni saturar la RAM ajustada." },
     { name: "Radicado global: área + código + consecutivo", w: 10, why: "Requisito del sprint; consistente en todos los productos." },
     { name: "Esfuerzo de integración (con cada app)", w: 9, why: "Enganchar con HRM, CRM y facturación y sus permisos." },
@@ -721,11 +690,11 @@
     },
     {
       let: "B", name: "Todo dentro del HRM (Frappe nativo)", win: false,
-      desc: "Guardar los documentos dentro del propio HRM con sus piezas nativas. Era la recomendación anterior.",
+      desc: "Guardar los documentos dentro del propio HRM con sus piezas nativas.",
       scores: [2,2,5,4,4,5,4,5,5,3,2,5,5],
       pros: ["Cero servicios nuevos: reusa lo que ya corre", "Radicado nativo y permisos ya listos", "Respaldo incluido en el del HRM"],
       cons: ["Los archivos pesados frenan el HRM al subir", "No tiene dónde guardar los docs propios de NTS", "Queda aislado por cliente, no sirve a todos"],
-      tag: "Buena idea, pero choca con las 2 restricciones nuevas"
+      tag: "Buena idea, pero choca con el rendimiento y el alcance"
     },
     {
       let: "H", name: "Cloud SaaS (SharePoint / DocuWare / Zoho)", win: false,
