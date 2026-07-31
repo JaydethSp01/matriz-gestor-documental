@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Matriz de conveniencia y cumplimiento normativo (Colombia) de gestores documentales para el HRM de Next Talent Solutions.">
-<title>Matriz de conveniencia — Gestor documental HRM · Next Talent Solutions</title>
+<meta name="description" content="Matriz de conveniencia (v2): servicio documental compartido y separado para todo Next Talent.">
+<title>Matriz de conveniencia — Plataforma documental · Next Talent Solutions</title>
 <style>
   :root {
     color-scheme: light dark;
@@ -22,11 +22,11 @@
     --line: #d8dee2;
     --line-soft: #e6eaed;
 
-    --s1: #d6483f; /* 1 - crítico */
-    --s2: #e07f3c; /* 2 */
-    --s3: #d9b23e; /* 3 */
-    --s4: #63b06f; /* 4 */
-    --s5: #178f74; /* 5 - óptimo */
+    --s1: #d6483f;
+    --s2: #e07f3c;
+    --s3: #d9b23e;
+    --s4: #63b06f;
+    --s5: #178f74;
     --s1-ink: #ffffff; --s2-ink: #2a1a08; --s3-ink: #2a2408; --s4-ink: #0d2410; --s5-ink: #ffffff;
 
     --good: #178f74;
@@ -45,19 +45,10 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --ground: #0e141b;
-      --surface: #161f28;
-      --surface-soft: #1d2831;
-      --surface-sunk: #222e38;
-      --ink: #e9eef1;
-      --ink-soft: #aab7c1;
-      --ink-mute: #7f8e99;
-      --line: #2c3944;
-      --line-soft: #24303a;
-
+      --ground: #0e141b; --surface: #161f28; --surface-soft: #1d2831; --surface-sunk: #222e38;
+      --ink: #e9eef1; --ink-soft: #aab7c1; --ink-mute: #7f8e99; --line: #2c3944; --line-soft: #24303a;
       --s1: #e05a51; --s2: #e08b45; --s3: #d8b64c; --s4: #57ac67; --s5: #1fa585;
       --s1-ink: #12080a; --s2-ink: #1a0f04; --s3-ink: #1a1604; --s4-ink: #08160b; --s5-ink: #04140f;
-
       --good: #35b394; --warn: #e0a955; --bad: #e05a51;
       --shadow-lg: 0 22px 50px -24px rgba(0, 0, 0, 0.7);
       --shadow-sm: 0 2px 12px -4px rgba(0, 0, 0, 0.55);
@@ -85,15 +76,7 @@
   }
 
   * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--ground);
-    color: var(--ink);
-    font-family: var(--sans);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
   .wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 3rem); }
 
   h1, h2, h3, h4 { text-wrap: balance; line-height: 1.15; margin: 0; }
@@ -101,133 +84,116 @@
   .prose { max-width: var(--measure); }
   .prose p + p { margin-top: 0.85rem; }
 
-  .eyebrow {
-    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--brand-teal-strong);
-  }
+  .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brand-teal-strong); }
   .kicker-line { display: inline-flex; align-items: center; gap: 0.55rem; }
   .kicker-line::before { content: ""; width: 26px; height: 2px; background: var(--brand-orange); border-radius: 2px; }
 
-  /* ---------- Hero ---------- */
-  .hero {
-    position: relative; overflow: hidden;
-    border-bottom: 1px solid var(--line);
-    background:
-      radial-gradient(120% 140% at 88% -10%, color-mix(in srgb, var(--brand-teal) 20%, transparent), transparent 55%),
-      radial-gradient(90% 120% at 6% 0%, color-mix(in srgb, var(--brand-teal-strong) 12%, transparent), transparent 50%),
-      var(--surface);
-  }
+  .term { border-bottom: 1.5px dotted var(--brand-teal); cursor: help; font-weight: 600; color: var(--ink); }
+
+  /* Hero */
+  .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line);
+    background: radial-gradient(120% 140% at 88% -10%, color-mix(in srgb, var(--brand-teal) 20%, transparent), transparent 55%),
+      radial-gradient(90% 120% at 6% 0%, color-mix(in srgb, var(--brand-teal-strong) 12%, transparent), transparent 50%), var(--surface); }
   .hero-grid { padding: clamp(2.4rem, 6vw, 4.2rem) 0 clamp(2rem, 4vw, 3rem); display: grid; gap: 2rem; }
   .hero h1 { font-size: clamp(1.9rem, 4.6vw, 3.15rem); font-weight: 800; letter-spacing: -0.02em; }
   .hero h1 em { font-style: normal; color: var(--brand-teal-strong); }
-  .hero-lead { font-size: clamp(1.02rem, 1.9vw, 1.22rem); color: var(--ink-soft); max-width: 62ch; }
+  .hero-lead { font-size: clamp(1.02rem, 1.9vw, 1.22rem); color: var(--ink-soft); max-width: 64ch; }
   .hero-meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; font-size: 0.82rem; color: var(--ink-mute); }
   .hero-meta b { color: var(--ink-soft); font-weight: 600; }
 
-  /* ---------- Verdict banner ---------- */
-  .verdict {
-    display: grid; grid-template-columns: auto 1fr; gap: 1.2rem 1.5rem; align-items: center;
-    background: var(--surface); border: 1px solid var(--line);
-    border-left: 5px solid var(--brand-teal);
-    border-radius: var(--radius); padding: 1.4rem 1.6rem; box-shadow: var(--shadow-sm);
-  }
-  .verdict-badge {
-    display: grid; place-content: center; text-align: center;
-    width: 108px; height: 108px; border-radius: 20px;
-    background: linear-gradient(150deg, var(--brand-teal), var(--brand-teal-strong));
-    color: #fff; box-shadow: 0 10px 24px -12px var(--brand-teal-strong);
-  }
+  /* Review banner (what changed) */
+  .review-banner { display: grid; grid-template-columns: auto 1fr; gap: 1.1rem 1.4rem; align-items: start;
+    background: color-mix(in srgb, var(--brand-orange) 12%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--brand-orange) 42%, var(--line));
+    border-radius: var(--radius); padding: 1.3rem 1.5rem; box-shadow: var(--shadow-sm); }
+  .review-badge { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: #fff;
+    background: var(--brand-orange); padding: 0.4rem 0.7rem; border-radius: 999px; white-space: nowrap; margin-top: 0.15rem; }
+  .review-banner h3 { font-size: 1.12rem; font-weight: 760; margin-bottom: 0.5rem; }
+  .review-banner .rlist { display: grid; gap: 0.55rem; margin-top: 0.4rem; }
+  .review-banner .ri { display: grid; grid-template-columns: auto 1fr; gap: 0.6rem; font-size: 0.9rem; color: var(--ink-soft); }
+  .review-banner .ri b { color: var(--ink); }
+  .review-banner .ri .n { font-weight: 800; color: var(--brand-orange); font-variant-numeric: tabular-nums; }
+
+  /* Verdict */
+  .verdict { display: grid; grid-template-columns: auto 1fr; gap: 1.2rem 1.5rem; align-items: center;
+    background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--brand-teal);
+    border-radius: var(--radius); padding: 1.4rem 1.6rem; box-shadow: var(--shadow-sm); }
+  .verdict-badge { display: grid; place-content: center; text-align: center; width: 108px; height: 108px; border-radius: 20px;
+    background: linear-gradient(150deg, var(--brand-teal), var(--brand-teal-strong)); color: #fff; box-shadow: 0 10px 24px -12px var(--brand-teal-strong); }
   .verdict-badge .num { font-size: 2rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
   .verdict-badge .lbl { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.92; margin-top: 0.25rem; }
   .verdict h2 { font-size: 1.28rem; font-weight: 750; margin-bottom: 0.3rem; }
   .verdict h2 span { color: var(--brand-teal-strong); }
-  .verdict p { color: var(--ink-soft); font-size: 0.96rem; max-width: 70ch; }
+  .verdict p { color: var(--ink-soft); font-size: 0.96rem; max-width: 72ch; }
 
-  /* ---------- Section rhythm ---------- */
+  /* Definition box */
+  .defbox { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.3rem 1.5rem; box-shadow: var(--shadow-sm); }
+  .defbox h3 { font-size: 1.1rem; font-weight: 760; margin-bottom: 0.3rem; }
+  .defbox > p { color: var(--ink-soft); font-size: 0.9rem; max-width: var(--measure); }
+  .deflist { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 0.8rem; margin-top: 1.1rem; }
+  .def { background: var(--surface-soft); border: 1px solid var(--line-soft); border-radius: var(--radius-sm); padding: 0.85rem 1rem; }
+  .def .t { font-weight: 720; font-size: 0.9rem; color: var(--brand-teal-strong); }
+  .def .t small { display: block; font-weight: 600; font-size: 0.72rem; color: var(--ink-mute); margin-top: 0.1rem; }
+  .def p { font-size: 0.83rem; color: var(--ink-soft); margin-top: 0.35rem; }
+
   section { padding: clamp(2.2rem, 5vw, 3.6rem) 0; }
   section + section { border-top: 1px solid var(--line-soft); }
   .sec-head { margin-bottom: 1.6rem; }
   .sec-head h2 { font-size: clamp(1.4rem, 2.8vw, 1.95rem); font-weight: 780; letter-spacing: -0.015em; margin: 0.5rem 0 0.55rem; }
   .sec-head p { color: var(--ink-soft); max-width: var(--measure); }
 
-  /* ---------- Context "what exists today" ---------- */
-  .today-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
-  .today-card {
-    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
-    padding: 1.1rem 1.15rem; box-shadow: var(--shadow-sm);
-  }
+  .today-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(225px, 1fr)); gap: 1rem; }
+  .today-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 1.1rem 1.15rem; box-shadow: var(--shadow-sm); }
   .today-card .where { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-mute); }
   .today-card h4 { font-size: 1.02rem; margin: 0.35rem 0 0.4rem; }
-  .today-card p { font-size: 0.86rem; color: var(--ink-soft); }
+  .today-card p { font-size: 0.85rem; color: var(--ink-soft); }
   .today-card .flag { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.7rem; font-size: 0.76rem; font-weight: 650; }
-  .flag.risk { color: var(--bad); }
-  .flag.gap { color: var(--warn); }
-  .flag.ok { color: var(--good); }
+  .flag.risk { color: var(--bad); } .flag.gap { color: var(--warn); } .flag.ok { color: var(--good); }
   .flag .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
 
-  .callout {
-    margin-top: 1.4rem; display: flex; gap: 0.9rem;
-    background: color-mix(in srgb, var(--brand-orange) 12%, var(--surface));
-    border: 1px solid color-mix(in srgb, var(--brand-orange) 40%, var(--line));
-    border-radius: var(--radius-sm); padding: 1rem 1.2rem;
-  }
+  .callout { margin-top: 1.4rem; display: flex; gap: 0.9rem; background: color-mix(in srgb, var(--brand-orange) 12%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--brand-orange) 40%, var(--line)); border-radius: var(--radius-sm); padding: 1rem 1.2rem; }
   .callout .bar { width: 4px; background: var(--brand-orange); border-radius: 3px; flex: none; }
   .callout p { font-size: 0.9rem; color: var(--ink-soft); }
   .callout b { color: var(--ink); }
 
-  /* ---------- Weights ---------- */
   .weights { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.6rem 1.6rem; }
   .weight-row { display: grid; grid-template-columns: 1fr auto; gap: 0.4rem 0.8rem; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid var(--line-soft); }
+  .weight-row.new .cname::after { content: "nuevo"; font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #fff; background: var(--brand-orange); padding: 0.1rem 0.4rem; border-radius: 999px; margin-left: 0.45rem; vertical-align: middle; }
   .weight-row .cname { font-size: 0.9rem; font-weight: 550; }
   .weight-row .cnum { font-variant-numeric: tabular-nums; font-weight: 750; color: var(--brand-teal-strong); font-size: 0.9rem; }
   .weight-row .cbar { grid-column: 1 / -1; height: 5px; border-radius: 3px; background: var(--surface-sunk); overflow: hidden; }
   .weight-row .cbar i { display: block; height: 100%; background: linear-gradient(90deg, var(--brand-teal), var(--brand-teal-strong)); border-radius: 3px; }
   .weight-row .cwhy { grid-column: 1 / -1; font-size: 0.78rem; color: var(--ink-mute); }
 
-  /* ---------- Matrix ---------- */
   .matrix-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); background: var(--surface); }
-  table.matrix { border-collapse: collapse; width: 100%; min-width: 940px; font-size: 0.84rem; }
+  table.matrix { border-collapse: collapse; width: 100%; min-width: 980px; font-size: 0.84rem; }
   table.matrix thead th { position: sticky; top: 0; z-index: 2; }
   table.matrix th, table.matrix td { padding: 0.5rem 0.5rem; text-align: center; }
-  table.matrix thead th.crit-h, table.matrix tbody th.crit {
-    text-align: left; position: sticky; left: 0; z-index: 3;
-    background: var(--surface); min-width: 220px; max-width: 240px;
-  }
-  table.matrix thead th {
-    background: var(--surface-soft); color: var(--ink);
-    border-bottom: 2px solid var(--line); font-weight: 700; font-size: 0.78rem;
-    vertical-align: bottom; line-height: 1.2;
-  }
+  table.matrix thead th.crit-h, table.matrix tbody th.crit { text-align: left; position: sticky; left: 0; z-index: 3; background: var(--surface); min-width: 230px; max-width: 250px; }
+  table.matrix thead th { background: var(--surface-soft); color: var(--ink); border-bottom: 2px solid var(--line); font-weight: 700; font-size: 0.76rem; vertical-align: bottom; line-height: 1.2; }
   table.matrix thead th.opt.win { background: color-mix(in srgb, var(--brand-teal) 22%, var(--surface-soft)); }
   table.matrix thead th .optname { display: block; }
   table.matrix thead th .optlet { display: block; font-size: 0.66rem; color: var(--ink-mute); font-weight: 600; margin-bottom: 0.2rem; letter-spacing: 0.05em; }
   table.matrix tbody th.crit { font-weight: 600; font-size: 0.82rem; border-bottom: 1px solid var(--line-soft); }
+  table.matrix tbody th.crit.new::before { content: "★ "; color: var(--brand-orange); }
   table.matrix tbody th.crit .w { display: inline-block; margin-left: 0.4rem; font-size: 0.7rem; color: var(--ink-mute); font-weight: 600; font-variant-numeric: tabular-nums; }
   table.matrix tbody td { border-bottom: 1px solid var(--line-soft); border-left: 1px solid var(--line-soft); }
   table.matrix tbody tr:hover th.crit, table.matrix tbody tr:hover td { background: color-mix(in srgb, var(--brand-teal) 7%, var(--surface)); }
   .cell { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 8px; font-weight: 750; font-variant-numeric: tabular-nums; font-size: 0.9rem; }
-  .cell.s1 { background: var(--s1); color: var(--s1-ink); }
-  .cell.s2 { background: var(--s2); color: var(--s2-ink); }
-  .cell.s3 { background: var(--s3); color: var(--s3-ink); }
-  .cell.s4 { background: var(--s4); color: var(--s4-ink); }
-  .cell.s5 { background: var(--s5); color: var(--s5-ink); }
+  .cell.s1 { background: var(--s1); color: var(--s1-ink); } .cell.s2 { background: var(--s2); color: var(--s2-ink); }
+  .cell.s3 { background: var(--s3); color: var(--s3-ink); } .cell.s4 { background: var(--s4); color: var(--s4-ink); } .cell.s5 { background: var(--s5); color: var(--s5-ink); }
   table.matrix tfoot th, table.matrix tfoot td { padding: 0.7rem 0.5rem; border-top: 2px solid var(--line); }
   table.matrix tfoot th.crit { text-align: left; position: sticky; left: 0; background: var(--surface); font-weight: 750; font-size: 0.9rem; }
   table.matrix tfoot td { font-variant-numeric: tabular-nums; font-weight: 800; font-size: 1.05rem; background: var(--surface-soft); }
   table.matrix tfoot td.win { background: color-mix(in srgb, var(--brand-teal) 24%, var(--surface)); color: var(--brand-teal-strong); }
   table.matrix tfoot td .pct { display: block; font-size: 0.66rem; font-weight: 600; color: var(--ink-mute); }
-
   .legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.1rem; margin-top: 0.9rem; font-size: 0.76rem; color: var(--ink-soft); }
   .legend .lg { display: inline-flex; align-items: center; gap: 0.4rem; }
   .legend .sw { width: 15px; height: 15px; border-radius: 4px; }
 
-  /* ---------- Ranking ---------- */
   .rank-list { display: grid; gap: 0.55rem; }
-  .rank-item {
-    display: grid; grid-template-columns: 26px 1fr; gap: 0.9rem; align-items: center;
-    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
-    padding: 0.7rem 1rem; box-shadow: var(--shadow-sm);
-  }
+  .rank-item { display: grid; grid-template-columns: 26px 1fr; gap: 0.9rem; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0.7rem 1rem; box-shadow: var(--shadow-sm); }
   .rank-item.top { border-color: var(--brand-teal); border-left: 4px solid var(--brand-teal); }
   .rank-pos { font-variant-numeric: tabular-nums; font-weight: 800; color: var(--ink-mute); text-align: center; }
   .rank-item.top .rank-pos { color: var(--brand-teal-strong); }
@@ -239,44 +205,52 @@
   .rank-item.top .rank-track i { background: linear-gradient(90deg, var(--brand-teal), var(--brand-teal-strong)); }
   .rank-tag { grid-column: 1 / -1; font-size: 0.78rem; color: var(--ink-mute); }
 
-  /* ---------- Option cards ---------- */
   .opts { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.1rem; }
-  .opt-card {
-    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 1.25rem 1.3rem 1.35rem; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 0.55rem;
-  }
+  .opt-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem 1.3rem 1.35rem; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 0.55rem; }
   .opt-card.win { border-color: var(--brand-teal); box-shadow: 0 0 0 1px var(--brand-teal), var(--shadow-sm); }
   .opt-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.8rem; }
   .opt-let { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: var(--ink-mute); }
   .opt-card h3 { font-size: 1.1rem; font-weight: 720; margin-top: 0.1rem; }
-  .opt-score-pill {
-    flex: none; font-variant-numeric: tabular-nums; font-weight: 800; font-size: 0.9rem;
-    padding: 0.25rem 0.6rem; border-radius: 999px; background: var(--surface-sunk); color: var(--ink-soft);
-  }
+  .opt-score-pill { flex: none; font-variant-numeric: tabular-nums; font-weight: 800; font-size: 0.9rem; padding: 0.25rem 0.6rem; border-radius: 999px; background: var(--surface-sunk); color: var(--ink-soft); }
   .opt-card.win .opt-score-pill { background: var(--brand-teal); color: #fff; }
   .opt-desc { font-size: 0.85rem; color: var(--ink-soft); }
   .pc { display: grid; gap: 0.28rem; margin-top: 0.2rem; }
   .pc .row { display: grid; grid-template-columns: 16px 1fr; gap: 0.5rem; font-size: 0.82rem; align-items: start; }
   .pc .row .ic { font-weight: 800; line-height: 1.5; }
-  .pc .row.pro .ic { color: var(--good); }
-  .pc .row.con .ic { color: var(--bad); }
+  .pc .row.pro .ic { color: var(--good); } .pc .row.con .ic { color: var(--bad); }
   .pc .row span { color: var(--ink-soft); }
   .opt-tag { margin-top: auto; font-size: 0.74rem; font-weight: 650; padding-top: 0.5rem; border-top: 1px solid var(--line-soft); color: var(--ink-mute); }
   .opt-tag.win { color: var(--brand-teal-strong); }
 
-  /* ---------- Recommendation deep dive ---------- */
   .rec { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-lg); overflow: hidden; }
   .rec-head { padding: 1.5rem 1.7rem; background: linear-gradient(135deg, color-mix(in srgb, var(--brand-teal) 16%, var(--surface)), var(--surface)); border-bottom: 1px solid var(--line); }
   .rec-head h3 { font-size: 1.35rem; font-weight: 780; }
   .rec-head h3 span { color: var(--brand-teal-strong); }
   .rec-head p { color: var(--ink-soft); margin-top: 0.4rem; max-width: 74ch; font-size: 0.95rem; }
   .rec-body { padding: 1.5rem 1.7rem; display: grid; gap: 1.4rem; }
+
+  /* Flow diagram */
+  .flow { background: var(--surface-soft); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 1.3rem 1.2rem; }
+  .flow-title { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 1rem; text-align: center; }
+  .flow-row { display: flex; align-items: stretch; justify-content: center; gap: 0.5rem; flex-wrap: wrap; }
+  .flow-col { display: grid; gap: 0.5rem; }
+  .flow-node { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0.7rem 0.9rem; text-align: center; min-width: 120px; box-shadow: var(--shadow-sm); }
+  .flow-node .fn-t { font-weight: 700; font-size: 0.86rem; }
+  .flow-node .fn-s { font-size: 0.72rem; color: var(--ink-mute); margin-top: 0.15rem; }
+  .flow-node.apps { border-color: color-mix(in srgb, var(--brand-teal) 40%, var(--line)); }
+  .flow-node.store { border-color: var(--brand-teal); background: color-mix(in srgb, var(--brand-teal) 10%, var(--surface)); }
+  .flow-node.store .fn-t { color: var(--brand-teal-strong); }
+  .flow-node.side { border-style: dashed; }
+  .flow-arrow { display: grid; place-content: center; padding: 0 0.2rem; text-align: center; }
+  .flow-arrow .lab { font-size: 0.66rem; color: var(--brand-teal-strong); font-weight: 700; max-width: 92px; line-height: 1.25; }
+  .flow-arrow .ar { font-size: 1.3rem; color: var(--brand-teal); line-height: 1; }
+  .flow-note { margin-top: 1rem; font-size: 0.82rem; color: var(--ink-soft); text-align: center; max-width: 66ch; margin-inline: auto; }
+  .flow-note b { color: var(--ink); }
+
   .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.9rem; }
-  .why {
-    background: var(--surface-soft); border-radius: var(--radius-sm); padding: 0.95rem 1.05rem; border: 1px solid var(--line-soft);
-  }
+  .why { background: var(--surface-soft); border-radius: var(--radius-sm); padding: 0.95rem 1.05rem; border: 1px solid var(--line-soft); }
   .why h4 { font-size: 0.9rem; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.45rem; }
-  .why h4::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--brand-teal); }
+  .why h4::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--brand-teal); flex: none; }
   .why p { font-size: 0.82rem; color: var(--ink-soft); }
 
   .balance { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
@@ -284,68 +258,20 @@
   .balance .side.for { background: color-mix(in srgb, var(--good) 9%, var(--surface)); border-color: color-mix(in srgb, var(--good) 35%, var(--line)); }
   .balance .side.against { background: color-mix(in srgb, var(--warn) 10%, var(--surface)); border-color: color-mix(in srgb, var(--warn) 38%, var(--line)); }
   .balance h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.55rem; }
-  .balance .for h4 { color: var(--good); }
-  .balance .against h4 { color: var(--warn); }
+  .balance .for h4 { color: var(--good); } .balance .against h4 { color: var(--warn); }
   .balance ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.35rem; }
   .balance li { font-size: 0.84rem; color: var(--ink-soft); }
 
-  /* ---------- Roadmap ---------- */
-  .phases { display: grid; gap: 0; counter-reset: ph; }
-  .phase { display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; padding: 0 0 1.5rem; position: relative; }
-  .phase::before {
-    counter-increment: ph; content: counter(ph);
-    grid-row: 1 / 3; width: 40px; height: 40px; border-radius: 50%; z-index: 1;
-    display: grid; place-content: center; font-weight: 800; font-variant-numeric: tabular-nums;
-    background: var(--brand-teal); color: #fff; box-shadow: 0 0 0 4px var(--ground);
-  }
-  .phase:not(:last-child)::after {
-    content: ""; position: absolute; left: 19px; top: 40px; bottom: 0; width: 2px; background: var(--line);
-  }
-  .phase-body { padding-top: 0.15rem; }
-  .phase-body h4 { font-size: 1.02rem; font-weight: 700; }
-  .phase-body .eta { font-size: 0.74rem; font-weight: 650; color: var(--brand-teal-strong); text-transform: uppercase; letter-spacing: 0.05em; }
-  .phase-body p { font-size: 0.86rem; color: var(--ink-soft); margin-top: 0.3rem; }
-  .phase-body ul { margin: 0.45rem 0 0; padding-left: 1.1rem; display: grid; gap: 0.25rem; }
-  .phase-body li { font-size: 0.83rem; color: var(--ink-soft); }
-  code {
-    font-family: var(--mono); font-size: 0.82em; background: var(--surface-sunk);
-    padding: 0.1em 0.42em; border-radius: 5px; color: var(--brand-teal-strong); font-weight: 600;
-  }
-
-  /* ---------- Risks ---------- */
-  .risks { display: grid; gap: 0.7rem; }
-  .risk {
-    display: grid; grid-template-columns: auto 1fr; gap: 0.9rem; align-items: start;
-    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0.95rem 1.1rem;
-  }
-  .risk .sev { font-size: 0.66rem; font-weight: 750; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.22rem 0.5rem; border-radius: 6px; white-space: nowrap; margin-top: 0.1rem; }
-  .sev.med { background: color-mix(in srgb, var(--warn) 20%, var(--surface)); color: var(--warn); }
-  .sev.low { background: color-mix(in srgb, var(--good) 18%, var(--surface)); color: var(--good); }
-  .risk h4 { font-size: 0.9rem; margin-bottom: 0.2rem; }
-  .risk p { font-size: 0.82rem; color: var(--ink-soft); }
-  .risk p b { color: var(--ink); }
-
-  /* ---------- Cumplimiento normativo ---------- */
-  .scope {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0.9rem; margin-bottom: 1.4rem;
-  }
+  /* Compliance */
+  .scope { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0.9rem; margin-bottom: 1.4rem; }
   .scope-card { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0.95rem 1.1rem; background: var(--surface); box-shadow: var(--shadow-sm); }
   .scope-card .tg { font-size: 0.68rem; font-weight: 750; letter-spacing: 0.05em; text-transform: uppercase; }
-  .scope-card.bind .tg { color: var(--bad); }
-  .scope-card.cond .tg { color: var(--warn); }
-  .scope-card.self .tg { color: var(--good); }
+  .scope-card.bind .tg { color: var(--bad); } .scope-card.cond .tg { color: var(--warn); } .scope-card.self .tg { color: var(--good); }
   .scope-card h4 { font-size: 0.95rem; margin: 0.3rem 0 0.35rem; }
   .scope-card p { font-size: 0.82rem; color: var(--ink-soft); }
-
   .norm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(345px, 1fr)); gap: 0.9rem; }
-  .norm {
-    background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--line);
-    border-radius: var(--radius-sm); padding: 1rem 1.15rem; box-shadow: var(--shadow-sm);
-    display: flex; flex-direction: column; gap: 0.6rem;
-  }
-  .norm.ok { border-left-color: var(--good); }
-  .norm.mid { border-left-color: var(--warn); }
-  .norm.no { border-left-color: var(--bad); }
+  .norm { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: var(--radius-sm); padding: 1rem 1.15rem; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 0.6rem; }
+  .norm.ok { border-left-color: var(--good); } .norm.mid { border-left-color: var(--warn); } .norm.no { border-left-color: var(--bad); }
   .norm-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.6rem; }
   .norm h4 { font-size: 0.98rem; font-weight: 720; }
   .norm .norma { font-size: 0.72rem; color: var(--ink-mute); font-weight: 600; margin-top: 0.15rem; }
@@ -359,28 +285,45 @@
   .qa .v { font-size: 0.84rem; color: var(--ink-soft); }
   .norm .factor { font-size: 0.77rem; color: var(--ink-mute); border-top: 1px dashed var(--line); padding-top: 0.55rem; }
   .norm .factor b { color: var(--ink-soft); font-weight: 650; }
-
-  .maestro { margin-top: 1.4rem; display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; align-items: start;
-    background: color-mix(in srgb, var(--brand-teal) 8%, var(--surface)); border: 1px solid color-mix(in srgb, var(--brand-teal) 30%, var(--line));
-    border-radius: var(--radius); padding: 1.2rem 1.4rem; }
+  .maestro { margin-top: 1.4rem; display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; align-items: start; background: color-mix(in srgb, var(--brand-teal) 8%, var(--surface)); border: 1px solid color-mix(in srgb, var(--brand-teal) 30%, var(--line)); border-radius: var(--radius); padding: 1.2rem 1.4rem; }
   .maestro .bar { width: 4px; background: var(--brand-teal); border-radius: 3px; align-self: stretch; }
   .maestro h4 { font-size: 1.02rem; margin-bottom: 0.4rem; }
   .maestro p { font-size: 0.86rem; color: var(--ink-soft); }
   .maestro .map { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.7rem; }
   .maestro .chip { font-size: 0.76rem; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 0.28rem 0.7rem; color: var(--ink-soft); }
   .maestro .chip b { color: var(--brand-teal-strong); }
-
   .pending { margin-top: 1.4rem; }
   .pending h4 { font-size: 0.95rem; margin-bottom: 0.6rem; }
   .pending ul { margin: 0; padding-left: 1.15rem; display: grid; gap: 0.4rem; max-width: var(--measure); }
   .pending li { font-size: 0.86rem; color: var(--ink-soft); }
   .pending li b { color: var(--ink); }
 
+  .phases { display: grid; gap: 0; counter-reset: ph; }
+  .phase { display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; padding: 0 0 1.5rem; position: relative; }
+  .phase::before { counter-increment: ph; content: counter(ph); grid-row: 1 / 3; width: 40px; height: 40px; border-radius: 50%; z-index: 1; display: grid; place-content: center; font-weight: 800; font-variant-numeric: tabular-nums; background: var(--brand-teal); color: #fff; box-shadow: 0 0 0 4px var(--ground); }
+  .phase:not(:last-child)::after { content: ""; position: absolute; left: 19px; top: 40px; bottom: 0; width: 2px; background: var(--line); }
+  .phase-body { padding-top: 0.15rem; }
+  .phase-body h4 { font-size: 1.02rem; font-weight: 700; }
+  .phase-body .eta { font-size: 0.74rem; font-weight: 650; color: var(--brand-teal-strong); text-transform: uppercase; letter-spacing: 0.05em; }
+  .phase-body p { font-size: 0.86rem; color: var(--ink-soft); margin-top: 0.3rem; }
+  .phase-body ul { margin: 0.45rem 0 0; padding-left: 1.1rem; display: grid; gap: 0.25rem; }
+  .phase-body li { font-size: 0.83rem; color: var(--ink-soft); }
+  code { font-family: var(--mono); font-size: 0.82em; background: var(--surface-sunk); padding: 0.1em 0.42em; border-radius: 5px; color: var(--brand-teal-strong); font-weight: 600; }
+
+  .risks { display: grid; gap: 0.7rem; }
+  .risk { display: grid; grid-template-columns: auto 1fr; gap: 0.9rem; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0.95rem 1.1rem; }
+  .risk .sev { font-size: 0.66rem; font-weight: 750; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.22rem 0.5rem; border-radius: 6px; white-space: nowrap; margin-top: 0.1rem; }
+  .sev.med { background: color-mix(in srgb, var(--warn) 20%, var(--surface)); color: var(--warn); }
+  .sev.low { background: color-mix(in srgb, var(--good) 18%, var(--surface)); color: var(--good); }
+  .risk h4 { font-size: 0.9rem; margin-bottom: 0.2rem; }
+  .risk p { font-size: 0.82rem; color: var(--ink-soft); }
+  .risk p b { color: var(--ink); }
+
   footer { border-top: 1px solid var(--line); padding: 1.8rem 0 2.4rem; color: var(--ink-mute); font-size: 0.8rem; }
   footer .prose { display: grid; gap: 0.35rem; }
 
   @media (max-width: 620px) {
-    .verdict { grid-template-columns: 1fr; text-align: left; }
+    .verdict, .review-banner { grid-template-columns: 1fr; text-align: left; }
     .verdict-badge { width: 92px; height: 92px; }
   }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
@@ -391,14 +334,14 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow kicker-line">Análisis de decisión · Sprint · Tarea #6</span>
-      <h1 style="margin-top:0.7rem;">Matriz de conveniencia:<br><em>¿qué gestor documental</em> conviene al HRM?</h1>
+      <span class="eyebrow kicker-line">Análisis de decisión · Sprint · Tarea #6 · Revisión v2</span>
+      <h1 style="margin-top:0.7rem;">Matriz de conveniencia:<br>¿qué <em>gestor documental</em> conviene?</h1>
     </div>
-    <p class="hero-lead">Comparación ponderada de 8 alternativas reales para gestionar los documentos del HRM de Next Talent Solutions —contratos, documentos de empleado y firmas— con el foco puesto donde importa: <b>ahorrar recursos</b> sin perder cumplimiento legal ni el requisito de radicado <b>área + código + consecutivo</b>.</p>
+    <p class="hero-lead">Comparación ponderada de 8 alternativas para gestionar documentos <b>en todo Next Talent</b> —no solo el HRM: también sus cotizaciones, CRM y facturas, y los documentos de todos los clientes— sin poner lento el sistema y sin gastar de más.</p>
     <div class="hero-meta">
-      <span><b>Contexto:</b> ERP Frappe v14 + React · multi-tenant (1 site por cliente)</span>
-      <span><b>Infra:</b> Oracle Cloud · bench nativo · RAM ajustada</span>
-      <span><b>Firma:</b> DocuSeal autohospedado</span>
+      <span><b>Alcance:</b> HRM + CRM + facturación + docs propios · todos los tenants</span>
+      <span><b>Infra:</b> Oracle Cloud · RAM ajustada</span>
+      <span><b>Firma:</b> DocuSeal</span>
       <span><b>Criterios:</b> 13 ponderados</span>
     </div>
   </div>
@@ -407,14 +350,41 @@
 <main class="wrap">
 
   <section>
+    <div class="review-banner">
+      <span class="review-badge">Se corrigió</span>
+      <div>
+        <h3>Por qué esta versión cambia la recomendación anterior</h3>
+        <p style="font-size:0.9rem;color:var(--ink-soft);max-width:74ch;">La primera versión recomendaba meter todo dentro del HRM. La revisión técnica del equipo sumó dos restricciones reales que lo desaconsejan. Corregir con datos nuevos es lo correcto:</p>
+        <div class="rlist">
+          <div class="ri"><span class="n">1</span><span><b>No es solo para el cliente, es para todos.</b> También hay que guardar documentos propios de Next Talent (cotizaciones, CRM, facturas). Eso no cabe dentro del HRM de un solo cliente: necesita un lugar compartido.</span></div>
+          <div class="ri"><span class="n">2</span><span><b>El HRM no se puede poner lento.</b> Subir archivos pesados por dentro del HRM consume recursos y frena a quien esté trabajando talento humano. El almacenamiento debe ir <b>separado</b> del sistema interactivo.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="defbox">
+      <h3>Primero, en fácil: ¿qué es un gestor documental (DMS)?</h3>
+      <p><b>DMS</b> = <i>Document Management System</i>, o gestor documental. En palabras simples: un <b>archivador digital ordenado</b> que guarda cada documento, le pone un número, sabe cuál es la última versión, controla quién lo puede ver y cuánto tiempo hay que conservarlo. Estos son los términos que aparecen más abajo:</p>
+      <div class="deflist">
+        <div class="def"><span class="t">Almacén de objetos <small>MinIO / S3</small></span><p>Un “disco duro en red” hecho para guardar archivos sueltos. Aguanta millones de documentos sin cargar la base de datos del HRM. MinIO es la versión que se instala en tu propio servidor.</p></div>
+        <div class="def"><span class="t">URL firmada <small>presigned URL</small></span><p>Un permiso temporal para subir o bajar un archivo <b>directo</b> al almacén, sin pasar por el servidor del HRM. Por eso subir documentos no lo pone lento.</p></div>
+        <div class="def"><span class="t">Radicado <small>área + código + consecutivo</small></span><p>El número único y automático de cada documento, p. ej. <code>CONT-DOC-2026-0001</code>. Identifica y ordena; es lo que pediste en el sprint.</p></div>
+        <div class="def"><span class="t">WORM / Object Lock <small>retención</small></span><p>“Escribir una vez, no borrar”: asegura que un documento no se altere ni se elimine antes del tiempo legal. Sirve para cumplir la retención (p. ej. SG-SST 20 años).</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
     <div class="verdict">
       <div class="verdict-badge">
-        <span class="num">95%</span>
+        <span class="num">86%</span>
         <span class="lbl">Conveniencia</span>
       </div>
       <div>
-        <h2>Recomendación: consolidar en <span>Frappe nativo</span>, sin sumar un DMS externo.</h2>
-        <p>Un DocType <b>Documento</b> unificado con numeración por <b>Naming Series</b> (<code>ÁREA-DOC-.YYYY.-.####</code>), adjuntos en <b>File</b> privado, versionado y flujo de estados nativos, más traer el <b>PDF firmado de DocuSeal de vuelta al ERP</b>. Resuelve el radicado, cierra el hueco legal de custodia y no añade ni un servicio más que mantener. Ninguna otra opción ahorra tantos recursos por tan poco esfuerzo. La única concesión —búsqueda con OCR— se cubre después, y solo si se vuelve requisito real.</p>
+        <h2>Recomendación corregida: un <span>servicio documental compartido y separado</span>, sobre almacén de objetos.</h2>
+        <p>Un servicio de documentos <b>aparte del HRM</b>, montado sobre un <span class="term" title="Almacén de objetos compatible con S3, liviano, autohospedado.">almacén de objetos (MinIO/S3)</span>, que sirve a todos: HRM, CRM, facturación y los documentos propios de Next Talent. Los archivos se suben <b>directo al almacén</b> con una <span class="term" title="Permiso temporal para subir/bajar sin pasar por el servidor del HRM.">URL firmada</span>, así el HRM nunca carga su peso ni se pone lento. Un índice liviano lleva el radicado (área + código + consecutivo) igual para todos los productos. Es lo que pedía el equipo —<b>separado</b>— pero liviano y barato, no un DMS pesado.</p>
       </div>
     </div>
   </section>
@@ -422,38 +392,38 @@
   <section>
     <div class="sec-head">
       <span class="eyebrow kicker-line">Punto de partida</span>
-      <h2>Qué tiene el HRM hoy (y por qué la pregunta es urgente)</h2>
-      <p class="prose">Antes de comparar herramientas hay que ver el terreno. Hoy los documentos del HRM viven en <b>tres sitios distintos</b>, sin numeración de radicado y con una pieza legal fuera del ERP. Eso es lo que la matriz tiene que arreglar.</p>
+      <h2>Qué hay hoy (y qué falta cubrir)</h2>
+      <p class="prose">Los documentos están repartidos en varios sitios, sin número de radicado, con el firmado fuera del sistema — y <b>los documentos propios de Next Talent no tienen dónde vivir</b>.</p>
     </div>
     <div class="today-grid">
       <div class="today-card">
         <span class="where">Contrato generado</span>
-        <h4>JSON dentro del DocType</h4>
-        <p>El contrato se guarda como blob <code>datos_contrato</code> (con <code>__firma_meta</code>). No es un archivo: no se versiona ni se descarga como documento.</p>
-        <span class="flag gap"><span class="dot"></span>Sin archivo binario</span>
+        <h4>JSON dentro del sistema</h4>
+        <p>Se guarda como bloque de datos, no como archivo: no se versiona ni se descarga como documento.</p>
+        <span class="flag gap"><span class="dot"></span>Sin archivo real</span>
       </div>
       <div class="today-card">
         <span class="where">PDF firmado</span>
         <h4>Solo en DocuSeal</h4>
-        <p>El documento firmado queda en DocuSeal; en el ERP solo hay un <code>submission_id</code>. La custodia del original firmado está fuera del sistema de registro.</p>
+        <p>El firmado queda fuera del sistema; adentro solo hay un identificador. La custodia legal está afuera.</p>
         <span class="flag risk"><span class="dot"></span>Riesgo de custodia legal</span>
       </div>
       <div class="today-card">
         <span class="where">Documento de empleado</span>
-        <h4>Frappe File suelto</h4>
-        <p>Se sube con <code>upload_file</code> a la carpeta de adjuntos, sin metadatos de área, sin consecutivo, sin flujo de retención asociado.</p>
-        <span class="flag gap"><span class="dot"></span>Sin metadatos ni radicado</span>
+        <h4>Archivo suelto</h4>
+        <p>Se sube sin área, sin consecutivo y sin retención asociada.</p>
+        <span class="flag gap"><span class="dot"></span>Sin radicado</span>
       </div>
       <div class="today-card">
-        <span class="where">Requisito del sprint</span>
-        <h4>Radicado área + código + consecutivo</h4>
-        <p>No existe hoy: cero <code>autoname</code> / <code>naming_series</code> en las apps. Frappe lo cubre de forma nativa con configuración, no con software nuevo.</p>
-        <span class="flag ok"><span class="dot"></span>Cubrible sin sumar servicios</span>
+        <span class="where">Documentos de Next Talent</span>
+        <h4>Cotizaciones · CRM · facturas</h4>
+        <p>No tienen un lugar propio. No caben dentro del HRM de un cliente: son de la empresa, cruzan todos los productos.</p>
+        <span class="flag risk"><span class="dot"></span>Sin hogar hoy</span>
       </div>
     </div>
     <div class="callout">
       <div class="bar" aria-hidden="true"></div>
-      <p><b>El verdadero problema no es "falta un DMS".</b> Es que la información está fragmentada y el firmado no está bajo custodia del ERP. Traer un producto externo grande resolvería una parte… agregando tres problemas nuevos: más RAM, más mantenimiento y otra base de datos que respaldar. Por eso la matriz pesa fuerte el costo de infraestructura y el esfuerzo de integración.</p>
+      <p><b>La pregunta correcta no es “¿qué DMS instalo?”</b> sino “¿dónde viven los documentos de <b>toda</b> la empresa sin frenar el HRM?”. Por eso esta versión pesa fuerte dos cosas nuevas: <b>aislar el rendimiento</b> y <b>servir a todos los productos</b>, no solo a un HRM.</p>
     </div>
   </section>
 
@@ -461,7 +431,7 @@
     <div class="sec-head">
       <span class="eyebrow kicker-line">Cómo se puntúa</span>
       <h2>13 criterios ponderados</h2>
-      <p class="prose">Los pesos suman 100 y reflejan la prioridad explícita del sprint: <b>ahorrar recursos</b>. Infraestructura, operación e integración concentran el 41% del peso; el cumplimiento del radicado y la custodia legal aportan otro bloque decisivo. Cada opción se califica <b>1 (deficiente) a 5 (óptimo)</b> por criterio.</p>
+      <p class="prose">Los pesos suman 100 y ahora reflejan las dos restricciones nuevas del equipo, marcadas como <b>nuevo</b>. Cada opción se califica <b>1 (deficiente) a 5 (óptimo)</b> por criterio.</p>
     </div>
     <div class="weights" id="weights"></div>
   </section>
@@ -470,7 +440,7 @@
     <div class="sec-head">
       <span class="eyebrow kicker-line">La matriz</span>
       <h2>Puntaje por criterio, las 8 opciones</h2>
-      <p class="prose">Lectura tipo mapa de calor: verde = fortaleza, rojo = debilidad. El total pondera cada celda por el peso del criterio. Se muestra ordenada de mayor a menor conveniencia.</p>
+      <p class="prose">Verde = fortaleza, rojo = debilidad. El total pondera cada celda por el peso del criterio. Los criterios nuevos van con ★.</p>
     </div>
     <div class="matrix-scroll">
       <table class="matrix" id="matrix">
@@ -492,7 +462,7 @@
     <div class="sec-head">
       <span class="eyebrow kicker-line">Resultado</span>
       <h2>Ranking de conveniencia</h2>
-      <p class="prose">La opción nativa se despega con claridad. Curiosamente, los subcampeones no son los DMS especializados sino el <b>SaaS en la nube</b> y el <b>statu quo</b>: útiles como referencia de por qué el nativo gana, no como ganadores.</p>
+      <p class="prose">El servicio documental compartido se despega. La opción “todo dentro del HRM” —antes la recomendada— baja a segundo lugar: sigue siendo buena, pero pierde justo en las dos restricciones nuevas.</p>
     </div>
     <div class="rank-list" id="ranking"></div>
   </section>
@@ -501,7 +471,7 @@
     <div class="sec-head">
       <span class="eyebrow kicker-line">Las 8 opciones, sin sesgo</span>
       <h2>A favor y en contra de cada una</h2>
-      <p class="prose">Cada alternativa tiene un escenario donde sería la correcta. Aquí está lo bueno y lo malo de todas —incluida la recomendada— para que la decisión se sostenga sola.</p>
+      <p class="prose">Lo bueno y lo malo de todas —incluida la anterior recomendada— para que la decisión se sostenga sola.</p>
     </div>
     <div class="opts" id="opts"></div>
   </section>
@@ -509,46 +479,68 @@
   <section>
     <div class="sec-head">
       <span class="eyebrow kicker-line">La recomendación en detalle</span>
-      <h2>Por qué gana Frappe nativo consolidado</h2>
+      <h2>Cómo funciona el servicio documental compartido</h2>
     </div>
     <div class="rec">
       <div class="rec-head">
-        <h3>Opción A · <span>Consolidación nativa en Frappe</span></h3>
-        <p>No es "no hacer nada": es construir el gestor documental <b>dentro</b> del ERP con piezas que Frappe ya trae —File, Naming Series, Version, Workflow y el RBAC multi-tenant— y cerrar el circuito trayendo el firmado desde DocuSeal. Todo el valor de un DMS, cero servicios nuevos.</p>
+        <h3>Opción A · <span>Servicio documental compartido (object storage + índice)</span></h3>
+        <p>Un servicio de documentos separado del HRM. Guarda los archivos en un almacén de objetos liviano y deja que cada producto (HRM, CRM, facturación) solo apunte a ellos con su radicado. El HRM queda libre de peso.</p>
       </div>
       <div class="rec-body">
+
+        <div class="flow">
+          <div class="flow-title">El archivo nunca pasa por el HRM</div>
+          <div class="flow-row">
+            <div class="flow-col">
+              <div class="flow-node apps"><div class="fn-t">HRM</div><div class="fn-s">talento humano</div></div>
+              <div class="flow-node apps"><div class="fn-t">CRM</div><div class="fn-s">cotizaciones</div></div>
+              <div class="flow-node apps"><div class="fn-t">Facturación</div><div class="fn-s">facturas</div></div>
+            </div>
+            <div class="flow-arrow"><span class="lab">pide URL firmada</span><span class="ar">→</span></div>
+            <div class="flow-col" style="justify-content:center;">
+              <div class="flow-node store"><div class="fn-t">Almacén de objetos</div><div class="fn-s">MinIO / S3 · los archivos</div></div>
+            </div>
+            <div class="flow-arrow"><span class="ar">↔</span></div>
+            <div class="flow-col" style="justify-content:center;gap:0.5rem;">
+              <div class="flow-node side"><div class="fn-t">Índice + radicado</div><div class="fn-s">área·código·consecutivo</div></div>
+              <div class="flow-node side"><div class="fn-t">DocuSeal</div><div class="fn-s">deja el PDF firmado</div></div>
+            </div>
+          </div>
+          <p class="flow-note">El navegador sube el documento <b>directo al almacén</b> con la URL firmada. El HRM solo guarda el número y los datos —liviano—, así <b>nunca se pone lento</b> aunque alguien suba archivos grandes.</p>
+        </div>
+
         <div class="why-grid">
-          <div class="why"><h4>Ahorro real de recursos</h4><p>Reusa MariaDB, Redis y el disco que ya corren. Sin JVM, sin Solr, sin otro contenedor comiendo la RAM ajustada del Oracle Cloud.</p></div>
-          <div class="why"><h4>Radicado nativo</h4><p><code>ÁREA-DOC-.YYYY.-.####</code> con Naming Series entrega área + código + consecutivo automático, único y auditable, sin escribir lógica frágil.</p></div>
-          <div class="why"><h4>Cierra el hueco legal</h4><p>El PDF firmado vuelve al ERP como File privado con su Version. El sistema de registro pasa a custodiar el original, no un puntero.</p></div>
-          <div class="why"><h4>Un solo lugar, una sola curva</h4><p>El cliente PYME no aprende otra app ni cambia de pestaña: los documentos viven junto al empleado y al contrato que ya usa.</p></div>
-          <div class="why"><h4>Permisos que ya existen</h4><p>Hereda el RBAC por rol y el aislamiento multi-tenant. Nada de sincronizar identidades entre dos sistemas.</p></div>
-          <div class="why"><h4>Respaldo incluido</h4><p>Entra en el backup de Frappe hacia disco externo que ya está montado. Sin un segundo plan de respaldo que vigilar.</p></div>
+          <div class="why"><h4>El HRM no se frena</h4><p>Los archivos van directo al almacén, no por el servidor del HRM. Quien trabaja talento humano no siente lentitud aunque otro suba documentos pesados.</p></div>
+          <div class="why"><h4>Sirve a todos</h4><p>Un solo lugar para el HRM, el CRM, las facturas y los documentos propios de Next Talent, y para todos los clientes. No hay que montar uno por cada cosa.</p></div>
+          <div class="why"><h4>Radicado igual para todo</h4><p>El índice pone el área + código + consecutivo con la misma regla en todos los productos. Numeración consistente, no una por sistema.</p></div>
+          <div class="why"><h4>Barato y liviano</h4><p>El almacén de objetos es ligero; no es un DMS pesado tipo Alfresco. Cumple “separado” sin comerse la RAM del servidor.</p></div>
+          <div class="why"><h4>Cierra el hueco legal</h4><p>El PDF firmado de DocuSeal queda guardado en el almacén con bloqueo WORM. El original firmado pasa a estar bajo custodia.</p></div>
+          <div class="why"><h4>Escala solo</h4><p>Guardar más documentos es sumar espacio en el almacén, sin tocar ni pesar el HRM.</p></div>
         </div>
 
         <div class="balance">
           <div class="side for">
             <h4>Por qué sí</h4>
             <ul>
-              <li>Máximo ahorro de infraestructura y operación de todas las opciones (5/5 en ambos).</li>
-              <li>Resuelve el requisito del sprint sin dependencias externas.</li>
-              <li>Time-to-value en días, no semanas: es configuración + un DocType.</li>
-              <li>Soberanía total de los datos, sin lock-in de proveedor.</li>
+              <li>Es lo que pidió el equipo: separado, sin frenar el HRM.</li>
+              <li>Cubre a toda la empresa y a todos los clientes, no solo un HRM.</li>
+              <li>Liviano y de bajo costo; sin lock-in (estándar S3 abierto).</li>
+              <li>El bloqueo WORM fortalece la retención y la integridad legal.</li>
             </ul>
           </div>
           <div class="side against">
-            <h4>Qué se concede (honestidad)</h4>
+            <h4>Qué cuesta (honestidad)</h4>
             <ul>
-              <li>Sin OCR ni búsqueda full-text del contenido escaneado (3/5). Frappe busca por metadatos, no dentro del PDF.</li>
-              <li>Versionado y retención existen pero hay que <b>cablearlos</b> al TRD (<code>SgsstTablaRetencionDocumental</code>), no vienen listos.</li>
-              <li>Si el volumen documental creciera muchísimo, un objeto-store dedicado escalaría mejor el almacenamiento.</li>
+              <li>Es un servicio más que montar y respaldar (aunque ligero).</li>
+              <li>Hay que integrarlo con cada app y mapear permisos por tenant.</li>
+              <li>Sin OCR/búsqueda dentro del contenido de fábrica: se suma después con Paperless si se pide.</li>
             </ul>
           </div>
         </div>
 
         <div class="callout">
           <div class="bar" aria-hidden="true"></div>
-          <p><b>La única debilidad real —OCR/búsqueda— tiene salida sin rehacer nada.</b> Si mañana el cliente exige buscar "dentro" de los documentos escaneados, se añade <b>Paperless-ngx como complemento</b> (no como reemplazo): indexa y hace OCR mientras el ERP sigue siendo la fuente de verdad y el custodio legal. Se decide cuando sea un requisito, no antes: no se paga RAM por una función que quizá no se use.</p>
+          <p><b>Aclaración de ingeniería:</b> la preocupación de que “subir a Frappe pone lento el HRM” es cierta <b>solo si los archivos pasan por dentro del HRM</b>. Con el almacén de objetos y las URLs firmadas, el archivo <b>no</b> pasa por ahí — por eso la separación funciona y además queda liviana. “Separado” no obliga a un DMS pesado.</p>
         </div>
       </div>
     </div>
@@ -558,24 +550,24 @@
     <div class="sec-head">
       <span class="eyebrow kicker-line">Cumplimiento normativo · Colombia</span>
       <h2>¿Esto cumple la ley de gestión documental?</h2>
-      <p class="prose">Respuesta corta: <b>cumple la parte que le toca a la herramienta</b> (clasificar, codificar, conservar, versionar, auditar, controlar acceso) y el requisito puntual del sprint. El cumplimiento pleno exige además <b>instrumentos + proceso</b> —CCD, TRD, política de datos, expediente— que este diseño ya habilita. Un gestor conforme = herramienta (esto) + instrumentos + PGD. Aquí, casilla por casilla, el <b>por qué</b> y el <b>para qué</b>.</p>
+      <p class="prose">Sí en lo que le toca a la <b>herramienta</b> (clasificar, radicar, conservar, versionar, auditar, controlar acceso). El cumplimiento pleno exige además <b>instrumentos + proceso</b> (CCD, TRD, política de datos), que este diseño ya habilita. Casilla por casilla: el <b>por qué</b> y el <b>para qué</b>.</p>
     </div>
 
     <div class="scope">
       <div class="scope-card bind">
         <span class="tg">Obliga sí o sí</span>
         <h4>Ley 1581/2012 · Datos personales</h4>
-        <p>Aplica a todo el que trate datos personales. Un HRM es dato sensible puro → es la norma que <b>más</b> ata a una empresa privada. Súmale Decreto 1072 (SG-SST, 20 años) y el CST.</p>
+        <p>Aplica a todo el que trate datos personales. Un HRM es dato sensible puro → es la que más ata a una empresa privada. Súmale Decreto 1072 (SG-SST, 20 años) y el CST.</p>
       </div>
       <div class="scope-card cond">
         <span class="tg">Aplica si el tenant es público</span>
         <h4>Ley 594/2000 · 1712/2014 · Dec. 1080/2015</h4>
-        <p>Obligan a entidades públicas y privados con función pública. El HRM es multi-tenant: si un cliente es entidad pública, <b>ese</b> tenant cae bajo Ley 594 → el diseño debe soportarlo. Y lo soporta.</p>
+        <p>Obligan a entidades públicas y privados con función pública. Si un cliente del HRM es entidad pública, <b>ese</b> tenant cae bajo Ley 594 → el diseño debe soportarlo, y lo soporta.</p>
       </div>
       <div class="scope-card self">
         <span class="tg">NTS como privado</span>
         <h4>Buenas prácticas AGN, no régimen pleno</h4>
-        <p>Next Talent Solutions, por sí misma, no queda bajo el régimen estricto del AGN. Adoptar sus instrumentos es <b>ventaja competitiva</b> y prepara el producto para clientes públicos.</p>
+        <p>Next Talent, por sí misma, no queda bajo el régimen estricto del AGN. Adoptar sus instrumentos es ventaja competitiva y prepara el producto para clientes públicos.</p>
       </div>
     </div>
 
@@ -585,13 +577,13 @@
       <div class="bar" aria-hidden="true"></div>
       <div>
         <h4>Listados maestros — se cumplen de fábrica</h4>
-        <p>El <em>listado maestro de documentos y registros</em> (lenguaje ISO 9001) controla código, versión, estado, aprobación y responsable de cada documento. La propuesta <b>ES</b> un listado maestro vivo y auto-generado, sin planilla aparte que mantener a mano:</p>
+        <p>El <em>listado maestro de documentos y registros</em> (lenguaje ISO 9001) controla código, versión, estado, aprobación y responsable de cada documento. El servicio documental <b>ES</b> ese listado maestro, vivo y automático, sin planilla aparte:</p>
         <div class="map">
-          <span class="chip"><b>Código</b> ← Naming Series</span>
-          <span class="chip"><b>Versión</b> ← DocType Version</span>
-          <span class="chip"><b>Estado</b> ← Workflow</span>
-          <span class="chip"><b>Aprobación / fecha</b> ← campos + auditoría</span>
-          <span class="chip"><b>Responsable</b> ← owner / RBAC</span>
+          <span class="chip"><b>Código</b> ← índice/radicado</span>
+          <span class="chip"><b>Versión</b> ← versionado del objeto</span>
+          <span class="chip"><b>Estado</b> ← flujo del documento</span>
+          <span class="chip"><b>Aprobación / fecha</b> ← metadatos + auditoría</span>
+          <span class="chip"><b>Responsable</b> ← permisos por rol</span>
         </div>
       </div>
     </div>
@@ -599,11 +591,11 @@
     <div class="pending">
       <h4>Lo que falta sumar para cumplimiento pleno (el diseño ya lo habilita)</h4>
       <ul>
-        <li><b>Cargar el CCD y la TRD reales</b> del cliente (áreas → series → subseries y tiempos de retención), no genéricos.</li>
+        <li><b>Cargar el CCD y la TRD reales</b> (áreas → series → subseries y tiempos de retención), no genéricos.</li>
         <li><b>Política de tratamiento de datos personales</b> + registro de autorizaciones + flujo de supresión (Ley 1581).</li>
-        <li><b>Expediente electrónico + índice</b>: agrupar los documentos de cada empleado/contrato y foliarlos.</li>
+        <li><b>Expediente electrónico + índice</b>: agrupar y foliar los documentos de cada empleado/contrato/cliente.</li>
         <li><b>Normalizar a PDF/A</b> y definir el plan de preservación a largo plazo.</li>
-        <li><b>Disposición final controlada</b>: conservar / eliminar / transferir según la TRD, con acta, no a mano.</li>
+        <li><b>Disposición final controlada</b> (conservar / eliminar / transferir) con acta, según la TRD y el bloqueo WORM.</li>
       </ul>
     </div>
   </section>
@@ -612,51 +604,49 @@
     <div class="sec-head">
       <span class="eyebrow kicker-line">Cómo se implementa</span>
       <h2>Plan por fases</h2>
-      <p class="prose">Incremental y sin big-bang. Cada fase deja algo usable y no rompe lo que ya funciona.</p>
+      <p class="prose">Incremental y sin big-bang. Cada fase deja algo usable y no toca lo que ya funciona.</p>
     </div>
     <div class="phases">
       <div class="phase">
         <div class="phase-body">
-          <span class="eta">Fase 1 · ~2–3 días</span>
-          <h4>DocType <code>Documento</code> + Naming Series</h4>
-          <p>Modelo unificado con campo <code>area</code> (Link a un catálogo de áreas) y autoname por serie.</p>
+          <span class="eta">Fase 1 · ~3–4 días</span>
+          <h4>Montar el almacén + el índice de radicado</h4>
+          <p>Levantar MinIO (o conectar S3) en su propio espacio y crear el servicio/índice que asigna el radicado.</p>
           <ul>
-            <li>Serie <code>ÁREA-DOC-.YYYY.-.####</code> → radicado único y consecutivo por área/año.</li>
-            <li>Campos: área, tipo documental, empleado/contrato relacionado, estado, fecha, adjunto <code>File</code> privado.</li>
-            <li>Enlaces (Link) a <code>Empleado</code> y <code>Contrato Generado</code> para no duplicar datos.</li>
+            <li>Serie <code>ÁREA-DOC-.AAAA.-.####</code> global: área + código + consecutivo automático para todos los productos.</li>
+            <li>Un bucket/prefijo por tenant para aislar los documentos de cada cliente y los de Next Talent.</li>
           </ul>
         </div>
       </div>
       <div class="phase">
         <div class="phase-body">
-          <span class="eta">Fase 2 · ~2 días</span>
-          <h4>Traer el firmado de DocuSeal al ERP</h4>
-          <p>Al completar la firma, descargar el PDF final y adjuntarlo al <code>Documento</code> como File privado.</p>
+          <span class="eta">Fase 2 · ~3 días</span>
+          <h4>Subida directa con URL firmada</h4>
+          <p>Que el HRM (y luego CRM/facturación) pidan una URL firmada y el archivo suba directo al almacén.</p>
           <ul>
-            <li>Webhook / callback de DocuSeal → guarda el binario firmado + su hash.</li>
-            <li>El ERP pasa a ser custodio del original; DocuSeal queda como motor de firma, no como archivo.</li>
+            <li>El HRM guarda solo el radicado y los metadatos → cero peso de archivo, cero lentitud.</li>
+            <li>Permisos por tenant y por rol al pedir la URL.</li>
           </ul>
         </div>
       </div>
       <div class="phase">
         <div class="phase-body">
           <span class="eta">Fase 3 · ~2 días</span>
-          <h4>Versionado, estados y retención</h4>
-          <p>Activar <code>Version</code> y un Workflow de ciclo de vida (borrador → vigente → archivado) y enlazar el TRD.</p>
+          <h4>Traer el firmado + retención WORM</h4>
+          <p>DocuSeal deposita el PDF firmado en el almacén; se activa el bloqueo WORM según la TRD.</p>
           <ul>
-            <li>Conectar con <code>SgsstTablaRetencionDocumental</code> para calcular vencimientos de retención.</li>
-            <li>Permisos por rol reutilizando el RBAC existente; documentos privados por defecto.</li>
+            <li>El original firmado queda bajo custodia del sistema, no en un servicio externo.</li>
+            <li>Retención y disposición final calculadas desde la TRD.</li>
           </ul>
         </div>
       </div>
       <div class="phase">
         <div class="phase-body">
           <span class="eta">Fase 4 · opcional, bajo demanda</span>
-          <h4>OCR / búsqueda full-text (solo si se pide)</h4>
-          <p>Integrar Paperless-ngx como indexador complementario, manteniendo el ERP como fuente de verdad.</p>
+          <h4>Búsqueda / OCR (solo si se pide)</h4>
+          <p>Sumar Paperless-ngx en su propio espacio como buscador/OCR, sin tocar el almacén como fuente de verdad.</p>
           <ul>
-            <li>Se evalúa cuando exista el requisito real y haya RAM disponible.</li>
-            <li>Alternativa ligera: extraer texto en el ingreso y guardarlo como campo buscable en el propio DocType.</li>
+            <li>Se evalúa cuando exista el requisito real y haya recursos.</li>
           </ul>
         </div>
       </div>
@@ -672,29 +662,29 @@
       <div class="risk">
         <span class="sev med">Medio</span>
         <div>
-          <h4>El firmado no llega al ERP si falla el webhook</h4>
-          <p><b>Mitigación:</b> job de reconciliación que revisa firmas completadas en DocuSeal sin PDF en el ERP y las reintenta; alerta si un firmado lleva más de X horas sin custodiar.</p>
+          <h4>Otro servicio que operar y respaldar</h4>
+          <p><b>Mitigación:</b> MinIO es liviano y de un solo binario; entra en el mismo esquema de backup; replicación nativa para DR. El costo operativo es bajo frente al beneficio de no frenar el HRM.</p>
         </div>
       </div>
       <div class="risk">
         <span class="sev med">Medio</span>
         <div>
-          <h4>Retención documental mal parametrizada</h4>
-          <p><b>Mitigación:</b> cargar el TRD real (Decreto 1072 / Res. 0312 para SG-SST) validado con el cliente antes de automatizar vencimientos; empezar con alertas, no con borrado.</p>
+          <h4>Permisos entre apps y tenants mal mapeados</h4>
+          <p><b>Mitigación:</b> el índice valida tenant + rol antes de emitir cada URL firmada; buckets/prefijos separados por cliente; URLs de vida corta.</p>
+        </div>
+      </div>
+      <div class="risk">
+        <span class="sev med">Medio</span>
+        <div>
+          <h4>El firmado no llega al almacén si falla el webhook</h4>
+          <p><b>Mitigación:</b> job de reconciliación que detecta firmas completadas sin PDF guardado y reintenta; alerta si algo lleva horas sin custodiar.</p>
         </div>
       </div>
       <div class="risk">
         <span class="sev low">Bajo</span>
         <div>
-          <h4>Crece la necesidad de buscar dentro del contenido</h4>
-          <p><b>Mitigación:</b> la Fase 4 ya está prevista; el diseño no cambia, solo se enchufa el indexador. No es una decisión que haya que tomar hoy.</p>
-        </div>
-      </div>
-      <div class="risk">
-        <span class="sev low">Bajo</span>
-        <div>
-          <h4>Volumen de almacenamiento a largo plazo</h4>
-          <p><b>Mitigación:</b> Frappe File admite mover el binario a un backend S3/MinIO sin cambiar el modelo; se difiere hasta que el disco lo justifique.</p>
+          <h4>Necesidad futura de buscar dentro del contenido</h4>
+          <p><b>Mitigación:</b> la Fase 4 ya lo prevé; el diseño no cambia, solo se enchufa el indexador. No es decisión de hoy.</p>
         </div>
       </div>
     </div>
@@ -704,103 +694,103 @@
 
 <footer>
   <div class="wrap prose">
-    <p><b>Matriz de conveniencia — Gestor documental HRM.</b> Análisis para la tarea #6 del sprint. Evaluación ponderada de 8 opciones frente a 13 criterios priorizados por ahorro de recursos.</p>
-    <p>Puntajes 1–5 asignados sobre el estado real del ERP (Frappe v14 + React, multi-tenant en Oracle Cloud, firma con DocuSeal). Los pesos son ajustables: si cambia la prioridad, cambia el ganador —pero con el foco en recursos, la consolidación nativa domina.</p>
+    <p><b>Matriz de conveniencia — Plataforma documental (revisión v2).</b> Análisis para la tarea #6. Evaluación ponderada de 8 opciones frente a 13 criterios, corregida tras la revisión técnica del equipo.</p>
+    <p>Puntajes 1–5 sobre el estado real (multi-tenant en Oracle Cloud con RAM ajustada, firma con DocuSeal, documentos propios de Next Talent además de los del HRM). Los pesos son ajustables: si cambia la prioridad, cambia el ganador —pero con el foco en no frenar el HRM y servir a todos, el servicio documental separado y liviano domina.</p>
   </div>
 </footer>
 
 <script>
   const CRITERIA = [
-    { name: "Costo de infraestructura (RAM/CPU/disco)", w: 18, why: "Prioridad #1: no comprar más servidor ni saturar la RAM." },
-    { name: "Ahorro operativo / menos servicios", w: 12, why: "Cada servicio nuevo es mantenimiento, parches y respaldo extra." },
-    { name: "Radicado: área + código + consecutivo", w: 11, why: "Requisito explícito del sprint; no existe hoy." },
-    { name: "Esfuerzo de integración (Frappe/RBAC)", w: 11, why: "Enganchar con empleado, contrato y permisos actuales." },
-    { name: "Custodia legal del firmado + auditoría", w: 9, why: "El original firmado debe vivir bajo el sistema de registro." },
-    { name: "Versionado + retención (TRD)", w: 8, why: "Ciclo de vida documental y cumplimiento normativo." },
-    { name: "Seguridad / permisos (reusa RBAC)", w: 7, why: "Sin duplicar identidades ni modelos de acceso." },
-    { name: "Tiempo a valor", w: 6, why: "Qué tan rápido resuelve el requisito real." },
-    { name: "Curva de aprendizaje (PYME)", w: 5, why: "Usuario final no técnico, una sola herramienta." },
-    { name: "Búsqueda / OCR / metadatos", w: 5, why: "Encontrar documentos, idealmente dentro del contenido." },
-    { name: "Escalabilidad multi-tenant", w: 4, why: "1 site por cliente; aislamiento y crecimiento." },
+    { name: "Aislamiento de rendimiento (no frena el HRM)", w: 15, isNew: true, why: "Restricción del equipo: subir archivos no debe poner lento el sistema." },
+    { name: "Alcance multi-producto (HRM + CRM + facturas + docs de NTS)", w: 13, isNew: true, why: "Sirve a toda la empresa y a todos los clientes, no solo un HRM." },
+    { name: "Costo de infraestructura (RAM/CPU/disco)", w: 13, why: "No comprar más servidor ni saturar la RAM ajustada." },
+    { name: "Radicado global: área + código + consecutivo", w: 10, why: "Requisito del sprint; consistente en todos los productos." },
+    { name: "Esfuerzo de integración (con cada app)", w: 9, why: "Enganchar con HRM, CRM y facturación y sus permisos." },
+    { name: "Custodia legal del firmado + auditoría", w: 8, why: "El original firmado debe quedar bajo el sistema." },
+    { name: "Versionado + retención (TRD, WORM)", w: 7, why: "Ciclo de vida y conservación legal." },
+    { name: "Ahorro operativo / menos servicios", w: 6, why: "Cada servicio nuevo es mantenimiento y respaldo extra." },
+    { name: "Seguridad / permisos multi-tenant", w: 6, why: "Aislar documentos por cliente y por rol." },
+    { name: "Búsqueda / OCR / metadatos", w: 4, why: "Encontrar documentos, idealmente dentro del contenido." },
+    { name: "Escalabilidad de almacenamiento", w: 4, why: "Crecer en documentos sin pesar el sistema." },
     { name: "Soberanía de datos / lock-in", w: 3, why: "Control del dato y salida sin castigo." },
-    { name: "Backups / DR (reusa respaldo)", w: 1, why: "Entrar en el respaldo ya existente." }
+    { name: "Backups / DR", w: 2, why: "Respaldo y recuperación ante desastre." }
   ];
 
   const OPTIONS = [
     {
-      let: "A", name: "Frappe nativo (consolidado)", win: true,
-      desc: "DocType Documento + Naming Series + File + Version/Workflow + traer el firmado de DocuSeal.",
-      scores: [5,5,5,5,5,4,5,4,5,3,5,5,5],
-      pros: ["Cero servicios nuevos: reusa todo lo que ya corre", "Radicado nativo con Naming Series", "Cierra el hueco de custodia legal del firmado", "Misma UI, mismos permisos, mismo respaldo"],
-      cons: ["Sin OCR / búsqueda full-text del contenido", "Retención hay que cablearla al TRD"],
-      tag: "★ Recomendada — máximo ahorro por mínimo esfuerzo"
+      let: "A", name: "Servicio documental compartido (object storage + índice)", win: true,
+      desc: "Almacén de objetos (MinIO/S3) separado del HRM + índice que lleva el radicado. Subida directa con URL firmada.",
+      scores: [5,5,4,5,3,4,5,3,4,2,5,5,4],
+      pros: ["No frena el HRM: el archivo no pasa por él", "Sirve a todos los productos y clientes", "Liviano y barato; estándar abierto (sin lock-in)", "WORM refuerza retención y custodia legal"],
+      cons: ["Un servicio más que montar y respaldar (ligero)", "Integrar y mapear permisos en cada app", "Sin OCR de fábrica (se suma después)"],
+      tag: "★ Recomendada — separado, liviano y para todos"
     },
     {
-      let: "H", name: "Cloud SaaS (SharePoint / Drive / DocuWare)", win: false,
-      desc: "Gestor documental gestionado por un proveedor externo, integrado vía API.",
-      scores: [3,4,3,2,4,4,2,3,3,5,4,1,4],
-      pros: ["Cero infraestructura propia que mantener", "Búsqueda y OCR de primer nivel", "Cumplimiento y retención maduros"],
-      cons: ["Costo recurrente por usuario, para siempre", "Lock-in fuerte y datos fuera del país/control", "Otra identidad y permisos que sincronizar"],
+      let: "B", name: "Todo dentro del HRM (Frappe nativo)", win: false,
+      desc: "Guardar los documentos dentro del propio HRM con sus piezas nativas. Era la recomendación anterior.",
+      scores: [2,2,5,4,4,5,4,5,5,3,2,5,5],
+      pros: ["Cero servicios nuevos: reusa lo que ya corre", "Radicado nativo y permisos ya listos", "Respaldo incluido en el del HRM"],
+      cons: ["Los archivos pesados frenan el HRM al subir", "No tiene dónde guardar los docs propios de NTS", "Queda aislado por cliente, no sirve a todos"],
+      tag: "Buena idea, pero choca con las 2 restricciones nuevas"
+    },
+    {
+      let: "H", name: "Cloud SaaS (SharePoint / DocuWare / Zoho)", win: false,
+      desc: "Gestor documental gestionado por un proveedor externo, integrado por API.",
+      scores: [5,4,3,3,2,4,4,4,2,5,5,1,4],
+      pros: ["Cero infraestructura propia; no toca el HRM", "Búsqueda y OCR de primer nivel", "Retención y cumplimiento maduros"],
+      cons: ["Costo mensual por usuario, para siempre", "Lock-in fuerte y datos fuera del control", "Otra identidad y permisos que sincronizar"],
       tag: "Buena si se aceptara costo mensual y datos externos"
     },
     {
-      let: "—", name: "Statu quo (DocuSeal + File suelto)", win: false,
-      desc: "Dejar todo como está: contrato en JSON, firmado en DocuSeal, adjuntos sueltos.",
-      scores: [5,4,1,4,2,1,4,3,3,1,4,4,3],
-      pros: ["Cero trabajo y cero infraestructura nueva", "Ya integrado con lo existente"],
-      cons: ["No cumple el requisito de radicado", "Deja el firmado fuera de custodia (riesgo legal)", "Sin versionado ni retención de documentos"],
-      tag: "Descartada: no resuelve el problema del sprint"
+      let: "F", name: "OpenKM / Alfresco CE (separado)", win: false,
+      desc: "DMS empresarial (define: gestor documental robusto) sobre Java, con búsqueda y records management.",
+      scores: [5,3,1,3,1,5,5,1,3,5,4,4,2],
+      pros: ["Records management y retención de nivel empresarial", "Búsqueda + OCR muy completas", "Está separado del HRM"],
+      cons: ["Java + Solr: el mayor consumo de RAM de todas", "Integración y curva costosas", "Contradice el objetivo de ahorrar recursos"],
+      tag: "Separado sí, pero pesado — no ahorra recursos"
     },
     {
-      let: "G", name: "MinIO / S3 + capa de metadatos en ERP", win: false,
-      desc: "Almacén de objetos para los binarios y los metadatos/consecutivo dentro del ERP.",
-      scores: [3,3,3,3,3,4,3,2,2,2,4,5,3],
-      pros: ["Almacenamiento ligero y muy escalable", "Versionado y WORM nativos del objeto", "Estándar abierto, sin lock-in"],
-      cons: ["La lógica de radicado y permisos hay que construirla igual", "Sin UI de usuario final ni OCR de fábrica", "Otro componente que operar y respaldar"],
-      tag: "Tiene sentido solo a gran volumen de almacenamiento"
+      let: "D", name: "Mayan EDMS (separado)", win: false,
+      desc: "DMS open source de gama media: metadatos, workflows, OCR.",
+      scores: [5,2,2,3,2,4,4,1,2,5,3,5,2],
+      pros: ["Metadatos, versionado y auditoría robustos", "OCR potente", "Open source, separado del HRM"],
+      cons: ["Muchas piezas = alto mantenimiento", "Mono-cliente: una instancia por tenant", "Pesado para la infraestructura disponible"],
+      tag: "Sobredimensionado y mono-tenant"
     },
     {
-      let: "C", name: "Paperless-ngx", win: false,
-      desc: "DMS OSS liviano orientado a digitalización y OCR full-text.",
-      scores: [2,2,3,2,4,3,2,2,2,5,2,5,2],
-      pros: ["OCR y búsqueda full-text excelentes (su fuerte)", "Open source, datos propios", "Comunidad activa y ligero para su categoría"],
-      cons: ["Otro servicio (Django+Redis+Tika) sobre RAM ajustada", "Mono-tenant: una instancia por cliente", "Radicado por área no es de fábrica; integración a construir"],
+      let: "C", name: "Paperless-ngx (separado)", win: false,
+      desc: "DMS open source liviano especializado en digitalización y OCR.",
+      scores: [5,2,2,3,2,4,3,2,2,5,3,5,2],
+      pros: ["OCR y búsqueda full-text excelentes (su fuerte)", "Liviano para su categoría; separado del HRM", "Open source, datos propios"],
+      cons: ["Mono-cliente: una instancia por tenant", "No pensado para docs de toda la empresa", "Radicado por área no viene de fábrica"],
       tag: "Ideal como complemento de OCR, no como base"
     },
     {
-      let: "D", name: "Mayan EDMS", win: false,
-      desc: "DMS OSS de gama media: metadatos, workflows, OCR, gabinetes.",
-      scores: [2,1,3,2,4,4,2,2,1,5,2,5,2],
-      pros: ["Metadatos, versionado y auditoría robustos", "OCR y clasificación potentes", "Open source"],
-      cons: ["Muchas piezas (Celery, colas) = alto mantenimiento", "Pesado para la infraestructura disponible", "Curva de aprendizaje alta para una PYME"],
-      tag: "Sobredimensionado para el tamaño del cliente"
-    },
-    {
-      let: "E", name: "Nextcloud / SeaFile", win: false,
+      let: "E", name: "Nextcloud / SeaFile (separado)", win: false,
       desc: "Plataforma de archivos con sincronización, compartición y versionado.",
-      scores: [2,2,1,2,3,3,2,2,3,3,3,5,2],
-      pros: ["UI de archivos familiar", "Versionado de archivos incluido", "Open source, datos propios"],
-      cons: ["Es file-share, no gestor documental: sin radicado", "Retención y auditoría débiles", "Otro stack (PHP+DB+cron) que operar"],
+      scores: [5,3,2,1,2,3,3,2,3,3,3,5,2],
+      pros: ["UI de archivos familiar; separado del HRM", "Versionado incluido", "Open source"],
+      cons: ["Es compartir archivos, no gestionar documentos: sin radicado", "Retención y auditoría débiles", "Otro stack completo que operar"],
       tag: "Resuelve compartir, no gestionar documentos formales"
     },
     {
-      let: "F", name: "OpenKM / Alfresco CE", win: false,
-      desc: "DMS empresarial (JVM) con records management y búsqueda Solr.",
-      scores: [1,1,3,1,4,5,2,1,1,5,3,4,2],
-      pros: ["Records management y retención de nivel empresarial", "Búsqueda Solr + OCR muy completas", "Modelo documental muy rico"],
-      cons: ["JVM + Solr: el mayor consumo de RAM de todas", "Integración y curva más costosas", "Edición Community limitada / con upsell"],
-      tag: "Potente pero incompatible con 'ahorrar recursos'"
+      let: "—", name: "Statu quo (DocuSeal + archivo suelto)", win: false,
+      desc: "Dejar todo como está: contrato en JSON, firmado en DocuSeal, adjuntos sueltos.",
+      scores: [3,1,5,1,4,2,1,4,4,1,2,4,3],
+      pros: ["Cero trabajo y cero infraestructura nueva", "Ya integrado con lo existente"],
+      cons: ["No cumple el radicado ni cubre los docs de NTS", "Deja el firmado fuera de custodia (riesgo legal)", "Sin versionado ni retención"],
+      tag: "Descartada: no resuelve el problema"
     }
   ];
 
   const MAXW = Math.max(...CRITERIA.map(c => c.w));
   const totalW = CRITERIA.reduce((a, c) => a + c.w, 0);
+  const maxTotal = totalW * 5;
 
-  // Weights panel
   const weightsEl = document.getElementById("weights");
   CRITERIA.forEach(c => {
     const row = document.createElement("div");
-    row.className = "weight-row";
+    row.className = "weight-row" + (c.isNew ? " new" : "");
     row.innerHTML =
       '<span class="cname">' + c.name + '</span>' +
       '<span class="cnum">' + c.w + '</span>' +
@@ -809,22 +799,16 @@
     weightsEl.appendChild(row);
   });
 
-  // Totals
   const totals = OPTIONS.map(o => o.scores.reduce((a, s, i) => a + s * CRITERIA[i].w, 0));
-  const maxTotal = totalW * 5;
 
-  // Matrix head
   const head = document.getElementById("matrix-head");
   head.innerHTML = '<th class="crit-h">Criterio <span style="font-weight:600;color:var(--ink-mute)">(peso)</span></th>' +
-    OPTIONS.map(o =>
-      '<th class="opt' + (o.win ? ' win' : '') + '"><span class="optlet">' + o.let + '</span><span class="optname">' + o.name + '</span></th>'
-    ).join("");
+    OPTIONS.map(o => '<th class="opt' + (o.win ? ' win' : '') + '"><span class="optlet">' + o.let + '</span><span class="optname">' + o.name + '</span></th>').join("");
 
-  // Matrix body
   const body = document.getElementById("matrix-body");
   CRITERIA.forEach((c, ci) => {
     const tr = document.createElement("tr");
-    let html = '<th class="crit">' + c.name + '<span class="w">' + c.w + '</span></th>';
+    let html = '<th class="crit' + (c.isNew ? " new" : "") + '">' + c.name + '<span class="w">' + c.w + '</span></th>';
     OPTIONS.forEach(o => {
       const s = o.scores[ci];
       html += '<td><span class="cell s' + s + '" title="' + c.name + ': ' + s + '/5">' + s + '</span></td>';
@@ -833,16 +817,13 @@
     body.appendChild(tr);
   });
 
-  // Matrix foot
   const foot = document.getElementById("matrix-foot");
   foot.innerHTML = '<th class="crit">Total ponderado</th>' +
     OPTIONS.map((o, i) => {
       const pct = Math.round(totals[i] / maxTotal * 100);
-      return '<td class="' + (o.win ? 'win' : '') + '">' + (totals[i] / totalW).toFixed(2) +
-        '<span class="pct">' + pct + '%</span></td>';
+      return '<td class="' + (o.win ? 'win' : '') + '">' + (totals[i] / totalW).toFixed(2) + '<span class="pct">' + pct + '%</span></td>';
     }).join("");
 
-  // Ranking
   const ranked = OPTIONS.map((o, i) => ({ o, t: totals[i] })).sort((a, b) => b.t - a.t);
   const maxRank = ranked[0].t;
   const rankEl = document.getElementById("ranking");
@@ -861,7 +842,6 @@
     rankEl.appendChild(item);
   });
 
-  // Option cards
   const optsEl = document.getElementById("opts");
   OPTIONS.forEach((o, i) => {
     const pct = Math.round(totals[i] / maxTotal * 100);
@@ -871,82 +851,59 @@
     o.pros.forEach(p => rows += '<div class="row pro"><span class="ic">+</span><span>' + p + '</span></div>');
     o.cons.forEach(p => rows += '<div class="row con"><span class="ic">−</span><span>' + p + '</span></div>');
     card.innerHTML =
-      '<div class="opt-top"><div><span class="opt-let">Opción ' + o.let + '</span>' +
-      '<h3>' + o.name + '</h3></div><span class="opt-score-pill">' + pct + '%</span></div>' +
+      '<div class="opt-top"><div><span class="opt-let">Opción ' + o.let + '</span><h3>' + o.name + '</h3></div>' +
+      '<span class="opt-score-pill">' + pct + '%</span></div>' +
       '<p class="opt-desc">' + o.desc + '</p>' +
       '<div class="pc">' + rows + '</div>' +
       '<div class="opt-tag' + (o.win ? ' win' : '') + '">' + o.tag + '</div>';
     optsEl.appendChild(card);
   });
 
-  // Cumplimiento normativo — casilla por casilla
   const NORMS = [
-    {
-      st: "ok", est: "Cumple", title: "Área + código + consecutivo automático", norma: "Codificación documental · requisito del sprint",
-      porque: "Naming Series genera <code>ÁREA-DOC-.YYYY.-.####</code> al crear: consecutivo único, secuencial y no editable por el usuario. Sin duplicados ni saltos manuales.",
+    { st: "ok", est: "Cumple", title: "Área + código + consecutivo automático", norma: "Codificación documental · requisito del sprint",
+      porque: "El índice asigna <code>ÁREA-DOC-2026-0001</code> al crear: consecutivo único, secuencial e inmutable, igual para todos los productos. Sin duplicados ni saltos a mano.",
       paraque: "Identificar cada documento de forma inequívoca y trazable — base de todo archivo y del listado maestro.",
-      factor: "Importa: unicidad e inmutabilidad del número. No importa: qué motor lo genera (lo da la plataforma)."
-    },
-    {
-      st: "mid", est: "Parcial", title: "Clasificación por series/áreas (CCD)", norma: "Ley 594 art. 24 · Ac. AGN 004/2013",
-      porque: "El campo <code>area</code> + la serie documental estructuran la clasificación desde la creación. Falta cargar el Cuadro de Clasificación real (áreas → series → subseries).",
-      paraque: "Ordenar el fondo por función y no por carpetas sueltas — es la obligación de organización de la Ley 594.",
-      factor: "Importa: que la taxonomía sea la del cliente. No importa: el nombre técnico del catálogo."
-    },
-    {
-      st: "mid", est: "Parcial", title: "TRD · retención y disposición final", norma: "Ley 594 art. 24 · Decreto 1080/2015",
-      porque: "Ya existe <code>SgsstTablaRetencionDocumental</code> y el DocType puede calcular vencimientos. Falta cablear el ciclo completo y la disposición final (conservar/eliminar/transferir).",
-      paraque: "Cumplir tiempos legales de conservación (p. ej. SG-SST 20 años) y depurar con criterio, no a mano.",
-      factor: "Importa: los tiempos legales reales. No importa: retener 'todo por si acaso' — eso viola la minimización."
-    },
-    {
-      st: "mid", est: "Parcial", title: "Ciclo vital del documento", norma: "Ley 594 art. 23",
-      porque: "El Workflow de estados modela el paso por las fases del documento. Falta parametrizar las transferencias gestión → central → histórico.",
-      paraque: "Que el documento migre de archivo activo a central e histórico según su valor, en vez de amontonarse.",
-      factor: "Importa: el valor documental que define la fase. No importa: mover físicamente nada (es un estado)."
-    },
-    {
-      st: "mid", est: "Parcial", title: "Conservación, integridad y preservación", norma: "Ac. AGN 006/2014 · Decreto 1080",
-      porque: "File privado + Version + hash + backup a disco externo garantizan integridad y respaldo. Falta normalizar a PDF/A y un plan de preservación a largo plazo.",
-      paraque: "Que el documento siga siendo legible e inalterado con los años — valor de conservación.",
-      factor: "Importa: integridad verificable (hash) y formato durable. No importa: el medio físico concreto."
-    },
-    {
-      st: "ok", est: "Cumple", title: "Trazabilidad y auditoría", norma: "Decreto 2609/2012 (comp. 1080)",
-      porque: "Version registra cada cambio (quién, qué, cuándo) y los logs de Frappe cierran la cadena. No hay edición silenciosa.",
+      factor: "Importa: unicidad e inmutabilidad. No importa: qué app lo genera (la regla es única y central)." },
+    { st: "ok", est: "Cumple", title: "Custodia del documento firmado", norma: "CST · valor probatorio",
+      porque: "El PDF firmado de DocuSeal se deposita en el almacén con bloqueo WORM. El sistema guarda el original, no un puntero externo.",
+      paraque: "Que el firmado tenga custodia y valor probatorio dentro del sistema — cierra el riesgo actual.",
+      factor: "Importa: custodiar el PDF final firmado. No importa: dónde se firmó (DocuSeal sigue siendo el motor)." },
+    { st: "ok", est: "Cumple", title: "Trazabilidad y auditoría", norma: "Decreto 2609/2012 (comp. 1080)",
+      porque: "El versionado del objeto + los registros de acceso guardan quién, qué y cuándo. Nada se altera en silencio.",
       paraque: "Probar quién hizo qué con cada documento — exigencia para archivos electrónicos.",
-      factor: "Importa: que la bitácora sea inalterable. No importa: guardar cada clic irrelevante."
-    },
-    {
-      st: "ok", est: "Cumple", title: "Custodia del documento firmado", norma: "CST · valor probatorio",
-      porque: "Hoy el firmado vive solo en DocuSeal; la propuesta lo trae al ERP como File custodiado. El sistema de registro guarda el original, no un puntero.",
-      paraque: "Que el firmado tenga custodia y valor probatorio dentro del sistema — cierra el riesgo legal actual.",
-      factor: "Importa: custodiar el PDF final con su firma. No importa: dónde se firmó (DocuSeal sigue siendo el motor)."
-    },
-    {
-      st: "no", est: "Falta", title: "Expediente electrónico + índice", norma: "Ac. AGN 002/2014 · 003/2015",
-      porque: "Hoy no se agrupan documentos en expediente ni se genera índice electrónico. El diseño lo permite, pero hay que construirlo.",
-      paraque: "Reunir todos los documentos de un empleado/contrato en un expediente ordenado y foliado — crítico si atiende clientes públicos.",
-      factor: "Importa si el tenant es público o hay litigio. Para un privado simple, es deseable, no bloqueante."
-    },
-    {
-      st: "mid", est: "Parcial", title: "Metadatos mínimos de archivo", norma: "Ac. AGN 003/2015",
-      porque: "Los campos del DocType cubren buena parte; falta definir el set mínimo de metadatos AGN.",
-      paraque: "Que cada documento sea localizable e interoperable por sus metadatos, no solo por su nombre.",
-      factor: "Importa: los metadatos que se buscan y se reportan. No importa: llenar campos que nadie consulta."
-    },
-    {
-      st: "mid", est: "Parcial", title: "Protección de datos personales", norma: "Ley 1581/2012 · Decreto 1377/2013",
-      porque: "Documentos privados por defecto, RBAC por rol y retención limitada dan seguridad y minimización. Falta política de tratamiento, registro de autorizaciones y flujo de supresión.",
-      paraque: "Tratar datos sensibles de RR. HH. sin exponerlos ni conservarlos más de lo debido — la norma que más obliga a un HRM.",
-      factor: "Importa: consentimiento, seguridad y supresión. No importa: acumular datos 'por completitud'."
-    },
-    {
-      st: "ok", est: "Cumple", title: "Acceso y consulta ágil", norma: "Ley 1712/2014 (si el tenant aplica)",
+      factor: "Importa: bitácora inalterable. No importa: registrar cada clic irrelevante." },
+    { st: "ok", est: "Cumple", title: "Conservación e integridad", norma: "Ac. AGN 006/2014 · Decreto 1080",
+      porque: "Almacén con versionado + WORM + hash + backup garantizan que el documento no se altere ni se pierda. Falta solo normalizar a PDF/A.",
+      paraque: "Que el documento siga siendo íntegro y recuperable con los años — valor de conservación.",
+      factor: "Importa: integridad verificable y formato durable. No importa: el medio físico concreto." },
+    { st: "mid", est: "Parcial", title: "Clasificación por series/áreas (CCD)", norma: "Ley 594 art. 24 · Ac. 004/2013",
+      porque: "El campo área + la serie estructuran la clasificación desde la creación. Falta cargar el Cuadro de Clasificación real del cliente.",
+      paraque: "Ordenar el fondo por función, no por carpetas sueltas — obligación de organización de Ley 594.",
+      factor: "Importa: que la taxonomía sea la del cliente. No importa: el nombre técnico del catálogo." },
+    { st: "mid", est: "Parcial", title: "TRD · retención y disposición final", norma: "Ley 594 art. 24 · Decreto 1080/2015",
+      porque: "El WORM aplica bloqueos por tiempo y el índice puede calcular vencimientos. Falta cablear el ciclo completo y la disposición final.",
+      paraque: "Cumplir tiempos legales (p. ej. SG-SST 20 años) y depurar con criterio, no a mano.",
+      factor: "Importa: los tiempos legales reales. No importa: retener 'todo por si acaso' (viola la minimización)." },
+    { st: "mid", est: "Parcial", title: "Ciclo vital del documento", norma: "Ley 594 art. 23",
+      porque: "El flujo de estados modela el paso por las fases. Falta parametrizar las transferencias gestión → central → histórico.",
+      paraque: "Que el documento migre según su valor, en vez de amontonarse todo junto.",
+      factor: "Importa: el valor documental que define la fase. No importa: mover archivos físicos (es un estado)." },
+    { st: "mid", est: "Parcial", title: "Metadatos mínimos de archivo", norma: "Ac. AGN 003/2015",
+      porque: "Los metadatos del índice cubren buena parte; falta definir el set mínimo AGN.",
+      paraque: "Que cada documento sea localizable e interoperable por sus metadatos.",
+      factor: "Importa: los metadatos que se buscan y reportan. No importa: llenar campos que nadie consulta." },
+    { st: "mid", est: "Parcial", title: "Protección de datos personales", norma: "Ley 1581/2012 · Decreto 1377/2013",
+      porque: "Documentos privados, permisos por rol y aislamiento por tenant dan seguridad y minimización. Falta política de tratamiento, autorizaciones y flujo de supresión.",
+      paraque: "Tratar datos sensibles de RR. HH. sin exponerlos ni conservarlos de más — la que más obliga a un HRM.",
+      factor: "Importa: consentimiento, seguridad y supresión. No importa: acumular datos 'por completitud'." },
+    { st: "mid", est: "Parcial", title: "Acceso y consulta ágil", norma: "Ley 1712/2014 (si el tenant aplica)",
       porque: "Búsqueda por metadatos inmediata; OCR/full-text queda para la fase 4, bajo demanda.",
-      paraque: "Localizar y consultar rápido — si el tenant es público, es obligación de acceso a la información.",
-      factor: "Importa: encontrar el documento correcto ya. No importa (aún): buscar dentro del escaneo si nadie lo pide."
-    }
+      paraque: "Localizar y consultar rápido — si el tenant es público, es obligación de acceso.",
+      factor: "Importa: encontrar el documento correcto ya. No importa (aún): buscar dentro del escaneo si nadie lo pide." },
+    { st: "no", est: "Falta", title: "Expediente electrónico + índice", norma: "Ac. AGN 002/2014 · 003/2015",
+      porque: "Hoy no se agrupan documentos en expediente ni se genera índice electrónico. El diseño lo permite; hay que construirlo.",
+      paraque: "Reunir todos los documentos de un empleado/contrato/cliente ordenados y foliados — clave si atiende públicos.",
+      factor: "Importa si el tenant es público o hay litigio. Para un privado simple, es deseable, no bloqueante." }
   ];
 
   const normsEl = document.getElementById("norms");
@@ -954,8 +911,7 @@
     const card = document.createElement("div");
     card.className = "norm " + n.st;
     card.innerHTML =
-      '<div class="norm-top"><div><h4>' + n.title + '</h4>' +
-        '<div class="norma">' + n.norma + '</div></div>' +
+      '<div class="norm-top"><div><h4>' + n.title + '</h4><div class="norma">' + n.norma + '</div></div>' +
         '<span class="estado ' + n.st + '">' + n.est + '</span></div>' +
       '<div class="qa">' +
         '<span class="k' + (n.st === "no" ? " no" : "") + '">Por qué</span><span class="v">' + n.porque + '</span>' +
