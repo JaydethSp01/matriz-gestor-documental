@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Matriz de conveniencia ponderada de 8 gestores documentales para el HRM de Next Talent Solutions.">
+<meta name="description" content="Matriz de conveniencia y cumplimiento normativo (Colombia) de gestores documentales para el HRM de Next Talent Solutions.">
 <title>Matriz de conveniencia — Gestor documental HRM · Next Talent Solutions</title>
 <style>
   :root {
@@ -325,6 +325,57 @@
   .risk p { font-size: 0.82rem; color: var(--ink-soft); }
   .risk p b { color: var(--ink); }
 
+  /* ---------- Cumplimiento normativo ---------- */
+  .scope {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0.9rem; margin-bottom: 1.4rem;
+  }
+  .scope-card { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0.95rem 1.1rem; background: var(--surface); box-shadow: var(--shadow-sm); }
+  .scope-card .tg { font-size: 0.68rem; font-weight: 750; letter-spacing: 0.05em; text-transform: uppercase; }
+  .scope-card.bind .tg { color: var(--bad); }
+  .scope-card.cond .tg { color: var(--warn); }
+  .scope-card.self .tg { color: var(--good); }
+  .scope-card h4 { font-size: 0.95rem; margin: 0.3rem 0 0.35rem; }
+  .scope-card p { font-size: 0.82rem; color: var(--ink-soft); }
+
+  .norm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(345px, 1fr)); gap: 0.9rem; }
+  .norm {
+    background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--line);
+    border-radius: var(--radius-sm); padding: 1rem 1.15rem; box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column; gap: 0.6rem;
+  }
+  .norm.ok { border-left-color: var(--good); }
+  .norm.mid { border-left-color: var(--warn); }
+  .norm.no { border-left-color: var(--bad); }
+  .norm-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.6rem; }
+  .norm h4 { font-size: 0.98rem; font-weight: 720; }
+  .norm .norma { font-size: 0.72rem; color: var(--ink-mute); font-weight: 600; margin-top: 0.15rem; }
+  .norm .estado { flex: none; font-size: 0.64rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.24rem 0.55rem; border-radius: 999px; white-space: nowrap; }
+  .estado.ok { background: color-mix(in srgb, var(--good) 18%, var(--surface)); color: var(--good); }
+  .estado.mid { background: color-mix(in srgb, var(--warn) 22%, var(--surface)); color: var(--warn); }
+  .estado.no { background: color-mix(in srgb, var(--bad) 16%, var(--surface)); color: var(--bad); }
+  .qa { display: grid; grid-template-columns: auto 1fr; gap: 0.32rem 0.6rem; }
+  .qa .k { font-weight: 800; color: var(--brand-teal-strong); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 0.2rem; white-space: nowrap; }
+  .qa .k.no { color: var(--bad); }
+  .qa .v { font-size: 0.84rem; color: var(--ink-soft); }
+  .norm .factor { font-size: 0.77rem; color: var(--ink-mute); border-top: 1px dashed var(--line); padding-top: 0.55rem; }
+  .norm .factor b { color: var(--ink-soft); font-weight: 650; }
+
+  .maestro { margin-top: 1.4rem; display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; align-items: start;
+    background: color-mix(in srgb, var(--brand-teal) 8%, var(--surface)); border: 1px solid color-mix(in srgb, var(--brand-teal) 30%, var(--line));
+    border-radius: var(--radius); padding: 1.2rem 1.4rem; }
+  .maestro .bar { width: 4px; background: var(--brand-teal); border-radius: 3px; align-self: stretch; }
+  .maestro h4 { font-size: 1.02rem; margin-bottom: 0.4rem; }
+  .maestro p { font-size: 0.86rem; color: var(--ink-soft); }
+  .maestro .map { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.7rem; }
+  .maestro .chip { font-size: 0.76rem; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 0.28rem 0.7rem; color: var(--ink-soft); }
+  .maestro .chip b { color: var(--brand-teal-strong); }
+
+  .pending { margin-top: 1.4rem; }
+  .pending h4 { font-size: 0.95rem; margin-bottom: 0.6rem; }
+  .pending ul { margin: 0; padding-left: 1.15rem; display: grid; gap: 0.4rem; max-width: var(--measure); }
+  .pending li { font-size: 0.86rem; color: var(--ink-soft); }
+  .pending li b { color: var(--ink); }
+
   footer { border-top: 1px solid var(--line); padding: 1.8rem 0 2.4rem; color: var(--ink-mute); font-size: 0.8rem; }
   footer .prose { display: grid; gap: 0.35rem; }
 
@@ -500,6 +551,60 @@
           <p><b>La única debilidad real —OCR/búsqueda— tiene salida sin rehacer nada.</b> Si mañana el cliente exige buscar "dentro" de los documentos escaneados, se añade <b>Paperless-ngx como complemento</b> (no como reemplazo): indexa y hace OCR mientras el ERP sigue siendo la fuente de verdad y el custodio legal. Se decide cuando sea un requisito, no antes: no se paga RAM por una función que quizá no se use.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="cumplimiento">
+    <div class="sec-head">
+      <span class="eyebrow kicker-line">Cumplimiento normativo · Colombia</span>
+      <h2>¿Esto cumple la ley de gestión documental?</h2>
+      <p class="prose">Respuesta corta: <b>cumple la parte que le toca a la herramienta</b> (clasificar, codificar, conservar, versionar, auditar, controlar acceso) y el requisito puntual del sprint. El cumplimiento pleno exige además <b>instrumentos + proceso</b> —CCD, TRD, política de datos, expediente— que este diseño ya habilita. Un gestor conforme = herramienta (esto) + instrumentos + PGD. Aquí, casilla por casilla, el <b>por qué</b> y el <b>para qué</b>.</p>
+    </div>
+
+    <div class="scope">
+      <div class="scope-card bind">
+        <span class="tg">Obliga sí o sí</span>
+        <h4>Ley 1581/2012 · Datos personales</h4>
+        <p>Aplica a todo el que trate datos personales. Un HRM es dato sensible puro → es la norma que <b>más</b> ata a una empresa privada. Súmale Decreto 1072 (SG-SST, 20 años) y el CST.</p>
+      </div>
+      <div class="scope-card cond">
+        <span class="tg">Aplica si el tenant es público</span>
+        <h4>Ley 594/2000 · 1712/2014 · Dec. 1080/2015</h4>
+        <p>Obligan a entidades públicas y privados con función pública. El HRM es multi-tenant: si un cliente es entidad pública, <b>ese</b> tenant cae bajo Ley 594 → el diseño debe soportarlo. Y lo soporta.</p>
+      </div>
+      <div class="scope-card self">
+        <span class="tg">NTS como privado</span>
+        <h4>Buenas prácticas AGN, no régimen pleno</h4>
+        <p>Next Talent Solutions, por sí misma, no queda bajo el régimen estricto del AGN. Adoptar sus instrumentos es <b>ventaja competitiva</b> y prepara el producto para clientes públicos.</p>
+      </div>
+    </div>
+
+    <div class="norm-grid" id="norms"></div>
+
+    <div class="maestro">
+      <div class="bar" aria-hidden="true"></div>
+      <div>
+        <h4>Listados maestros — se cumplen de fábrica</h4>
+        <p>El <em>listado maestro de documentos y registros</em> (lenguaje ISO 9001) controla código, versión, estado, aprobación y responsable de cada documento. La propuesta <b>ES</b> un listado maestro vivo y auto-generado, sin planilla aparte que mantener a mano:</p>
+        <div class="map">
+          <span class="chip"><b>Código</b> ← Naming Series</span>
+          <span class="chip"><b>Versión</b> ← DocType Version</span>
+          <span class="chip"><b>Estado</b> ← Workflow</span>
+          <span class="chip"><b>Aprobación / fecha</b> ← campos + auditoría</span>
+          <span class="chip"><b>Responsable</b> ← owner / RBAC</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pending">
+      <h4>Lo que falta sumar para cumplimiento pleno (el diseño ya lo habilita)</h4>
+      <ul>
+        <li><b>Cargar el CCD y la TRD reales</b> del cliente (áreas → series → subseries y tiempos de retención), no genéricos.</li>
+        <li><b>Política de tratamiento de datos personales</b> + registro de autorizaciones + flujo de supresión (Ley 1581).</li>
+        <li><b>Expediente electrónico + índice</b>: agrupar los documentos de cada empleado/contrato y foliarlos.</li>
+        <li><b>Normalizar a PDF/A</b> y definir el plan de preservación a largo plazo.</li>
+        <li><b>Disposición final controlada</b>: conservar / eliminar / transferir según la TRD, con acta, no a mano.</li>
+      </ul>
     </div>
   </section>
 
@@ -772,6 +877,92 @@
       '<div class="pc">' + rows + '</div>' +
       '<div class="opt-tag' + (o.win ? ' win' : '') + '">' + o.tag + '</div>';
     optsEl.appendChild(card);
+  });
+
+  // Cumplimiento normativo — casilla por casilla
+  const NORMS = [
+    {
+      st: "ok", est: "Cumple", title: "Área + código + consecutivo automático", norma: "Codificación documental · requisito del sprint",
+      porque: "Naming Series genera <code>ÁREA-DOC-.YYYY.-.####</code> al crear: consecutivo único, secuencial y no editable por el usuario. Sin duplicados ni saltos manuales.",
+      paraque: "Identificar cada documento de forma inequívoca y trazable — base de todo archivo y del listado maestro.",
+      factor: "Importa: unicidad e inmutabilidad del número. No importa: qué motor lo genera (lo da la plataforma)."
+    },
+    {
+      st: "mid", est: "Parcial", title: "Clasificación por series/áreas (CCD)", norma: "Ley 594 art. 24 · Ac. AGN 004/2013",
+      porque: "El campo <code>area</code> + la serie documental estructuran la clasificación desde la creación. Falta cargar el Cuadro de Clasificación real (áreas → series → subseries).",
+      paraque: "Ordenar el fondo por función y no por carpetas sueltas — es la obligación de organización de la Ley 594.",
+      factor: "Importa: que la taxonomía sea la del cliente. No importa: el nombre técnico del catálogo."
+    },
+    {
+      st: "mid", est: "Parcial", title: "TRD · retención y disposición final", norma: "Ley 594 art. 24 · Decreto 1080/2015",
+      porque: "Ya existe <code>SgsstTablaRetencionDocumental</code> y el DocType puede calcular vencimientos. Falta cablear el ciclo completo y la disposición final (conservar/eliminar/transferir).",
+      paraque: "Cumplir tiempos legales de conservación (p. ej. SG-SST 20 años) y depurar con criterio, no a mano.",
+      factor: "Importa: los tiempos legales reales. No importa: retener 'todo por si acaso' — eso viola la minimización."
+    },
+    {
+      st: "mid", est: "Parcial", title: "Ciclo vital del documento", norma: "Ley 594 art. 23",
+      porque: "El Workflow de estados modela el paso por las fases del documento. Falta parametrizar las transferencias gestión → central → histórico.",
+      paraque: "Que el documento migre de archivo activo a central e histórico según su valor, en vez de amontonarse.",
+      factor: "Importa: el valor documental que define la fase. No importa: mover físicamente nada (es un estado)."
+    },
+    {
+      st: "mid", est: "Parcial", title: "Conservación, integridad y preservación", norma: "Ac. AGN 006/2014 · Decreto 1080",
+      porque: "File privado + Version + hash + backup a disco externo garantizan integridad y respaldo. Falta normalizar a PDF/A y un plan de preservación a largo plazo.",
+      paraque: "Que el documento siga siendo legible e inalterado con los años — valor de conservación.",
+      factor: "Importa: integridad verificable (hash) y formato durable. No importa: el medio físico concreto."
+    },
+    {
+      st: "ok", est: "Cumple", title: "Trazabilidad y auditoría", norma: "Decreto 2609/2012 (comp. 1080)",
+      porque: "Version registra cada cambio (quién, qué, cuándo) y los logs de Frappe cierran la cadena. No hay edición silenciosa.",
+      paraque: "Probar quién hizo qué con cada documento — exigencia para archivos electrónicos.",
+      factor: "Importa: que la bitácora sea inalterable. No importa: guardar cada clic irrelevante."
+    },
+    {
+      st: "ok", est: "Cumple", title: "Custodia del documento firmado", norma: "CST · valor probatorio",
+      porque: "Hoy el firmado vive solo en DocuSeal; la propuesta lo trae al ERP como File custodiado. El sistema de registro guarda el original, no un puntero.",
+      paraque: "Que el firmado tenga custodia y valor probatorio dentro del sistema — cierra el riesgo legal actual.",
+      factor: "Importa: custodiar el PDF final con su firma. No importa: dónde se firmó (DocuSeal sigue siendo el motor)."
+    },
+    {
+      st: "no", est: "Falta", title: "Expediente electrónico + índice", norma: "Ac. AGN 002/2014 · 003/2015",
+      porque: "Hoy no se agrupan documentos en expediente ni se genera índice electrónico. El diseño lo permite, pero hay que construirlo.",
+      paraque: "Reunir todos los documentos de un empleado/contrato en un expediente ordenado y foliado — crítico si atiende clientes públicos.",
+      factor: "Importa si el tenant es público o hay litigio. Para un privado simple, es deseable, no bloqueante."
+    },
+    {
+      st: "mid", est: "Parcial", title: "Metadatos mínimos de archivo", norma: "Ac. AGN 003/2015",
+      porque: "Los campos del DocType cubren buena parte; falta definir el set mínimo de metadatos AGN.",
+      paraque: "Que cada documento sea localizable e interoperable por sus metadatos, no solo por su nombre.",
+      factor: "Importa: los metadatos que se buscan y se reportan. No importa: llenar campos que nadie consulta."
+    },
+    {
+      st: "mid", est: "Parcial", title: "Protección de datos personales", norma: "Ley 1581/2012 · Decreto 1377/2013",
+      porque: "Documentos privados por defecto, RBAC por rol y retención limitada dan seguridad y minimización. Falta política de tratamiento, registro de autorizaciones y flujo de supresión.",
+      paraque: "Tratar datos sensibles de RR. HH. sin exponerlos ni conservarlos más de lo debido — la norma que más obliga a un HRM.",
+      factor: "Importa: consentimiento, seguridad y supresión. No importa: acumular datos 'por completitud'."
+    },
+    {
+      st: "ok", est: "Cumple", title: "Acceso y consulta ágil", norma: "Ley 1712/2014 (si el tenant aplica)",
+      porque: "Búsqueda por metadatos inmediata; OCR/full-text queda para la fase 4, bajo demanda.",
+      paraque: "Localizar y consultar rápido — si el tenant es público, es obligación de acceso a la información.",
+      factor: "Importa: encontrar el documento correcto ya. No importa (aún): buscar dentro del escaneo si nadie lo pide."
+    }
+  ];
+
+  const normsEl = document.getElementById("norms");
+  NORMS.forEach(n => {
+    const card = document.createElement("div");
+    card.className = "norm " + n.st;
+    card.innerHTML =
+      '<div class="norm-top"><div><h4>' + n.title + '</h4>' +
+        '<div class="norma">' + n.norma + '</div></div>' +
+        '<span class="estado ' + n.st + '">' + n.est + '</span></div>' +
+      '<div class="qa">' +
+        '<span class="k' + (n.st === "no" ? " no" : "") + '">Por qué</span><span class="v">' + n.porque + '</span>' +
+        '<span class="k">Para qué</span><span class="v">' + n.paraque + '</span>' +
+      '</div>' +
+      '<div class="factor">' + n.factor + '</div>';
+    normsEl.appendChild(card);
   });
 </script>
 
