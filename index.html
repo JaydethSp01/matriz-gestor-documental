@@ -354,7 +354,7 @@
       <span class="review-badge">Se corrigió</span>
       <div>
         <h3>Por qué esta versión cambia la recomendación anterior</h3>
-        <p style="font-size:0.9rem;color:var(--ink-soft);max-width:74ch;">La primera versión recomendaba meter todo dentro del HRM. La revisión técnica del equipo sumó dos restricciones reales que lo desaconsejan. Corregir con datos nuevos es lo correcto:</p>
+        <p style="font-size:0.9rem;color:var(--ink-soft);max-width:74ch;">La primera versión proponía guardar todo dentro del HRM. La revisión técnica del equipo sumó dos restricciones que lo desaconsejan:</p>
         <div class="rlist">
           <div class="ri"><span class="n">1</span><span><b>No es solo para el cliente, es para todos.</b> También hay que guardar documentos propios de Next Talent (cotizaciones, CRM, facturas). Eso no cabe dentro del HRM de un solo cliente: necesita un lugar compartido.</span></div>
           <div class="ri"><span class="n">2</span><span><b>El HRM no se puede poner lento.</b> Subir archivos pesados por dentro del HRM consume recursos y frena a quien esté trabajando talento humano. El almacenamiento debe ir <b>separado</b> del sistema interactivo.</span></div>
@@ -469,9 +469,9 @@
 
   <section>
     <div class="sec-head">
-      <span class="eyebrow kicker-line">Las 8 opciones, sin sesgo</span>
+      <span class="eyebrow kicker-line">Las 8 opciones al detalle</span>
       <h2>A favor y en contra de cada una</h2>
-      <p class="prose">Lo bueno y lo malo de todas —incluida la anterior recomendada— para que la decisión se sostenga sola.</p>
+      <p class="prose">Lo bueno y lo malo de todas, incluida la anterior recomendada.</p>
     </div>
     <div class="opts" id="opts"></div>
   </section>
@@ -516,6 +516,7 @@
           <div class="why"><h4>Barato y liviano</h4><p>El almacén de objetos es ligero; no es un DMS pesado tipo Alfresco. Cumple “separado” sin comerse la RAM del servidor.</p></div>
           <div class="why"><h4>Cierra el hueco legal</h4><p>El PDF firmado de DocuSeal queda guardado en el almacén con bloqueo WORM. El original firmado pasa a estar bajo custodia.</p></div>
           <div class="why"><h4>Escala solo</h4><p>Guardar más documentos es sumar espacio en el almacén, sin tocar ni pesar el HRM.</p></div>
+          <div class="why"><h4>Soporta nuevos servicios del ERP</h4><p>Si mañana se agrega otro módulo o servicio al ERP, se conecta al mismo gestor documental sin montar nada nuevo: pide su radicado y su URL firmada igual que los demás. Nace preparado para crecer.</p></div>
         </div>
 
         <div class="balance">
@@ -529,7 +530,7 @@
             </ul>
           </div>
           <div class="side against">
-            <h4>Qué cuesta (honestidad)</h4>
+            <h4>Qué cuesta</h4>
             <ul>
               <li>Es un servicio más que montar y respaldar (aunque ligero).</li>
               <li>Hay que integrarlo con cada app y mapear permisos por tenant.</li>
@@ -691,13 +692,6 @@
   </section>
 
 </main>
-
-<footer>
-  <div class="wrap prose">
-    <p><b>Matriz de conveniencia — Plataforma documental (revisión v2).</b> Análisis para la tarea #6. Evaluación ponderada de 8 opciones frente a 13 criterios, corregida tras la revisión técnica del equipo.</p>
-    <p>Puntajes 1–5 sobre el estado real (multi-tenant en Oracle Cloud con RAM ajustada, firma con DocuSeal, documentos propios de Next Talent además de los del HRM). Los pesos son ajustables: si cambia la prioridad, cambia el ganador —pero con el foco en no frenar el HRM y servir a todos, el servicio documental separado y liviano domina.</p>
-  </div>
-</footer>
 
 <script>
   const CRITERIA = [
