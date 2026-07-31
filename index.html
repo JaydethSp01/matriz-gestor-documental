@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Matriz de conveniencia ponderada de 8 gestores documentales para el HRM de Next Talent Solutions.">
+<title>Matriz de conveniencia — Gestor documental HRM · Next Talent Solutions</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --brand-teal: #28b0ad;
+    --brand-teal-strong: #00a9c0;
+    --brand-orange: #f9a01b;
+
+    --ground: #f4f6f7;
+    --surface: #ffffff;
+    --surface-soft: #eef1f3;
+    --surface-sunk: #e7ebee;
+    --ink: #16202a;
+    --ink-soft: #4a5763;
+    --ink-mute: #74838f;
+    --line: #d8dee2;
+    --line-soft: #e6eaed;
+
+    --s1: #d6483f; /* 1 - crítico */
+    --s2: #e07f3c; /* 2 */
+    --s3: #d9b23e; /* 3 */
+    --s4: #63b06f; /* 4 */
+    --s5: #178f74; /* 5 - óptimo */
+    --s1-ink: #ffffff; --s2-ink: #2a1a08; --s3-ink: #2a2408; --s4-ink: #0d2410; --s5-ink: #ffffff;
+
+    --good: #178f74;
+    --warn: #cf8b2a;
+    --bad: #d6483f;
+
+    --shadow-lg: 0 18px 44px -22px rgba(16, 32, 42, 0.4);
+    --shadow-sm: 0 2px 10px -4px rgba(16, 32, 42, 0.22);
+    --radius: 16px;
+    --radius-sm: 10px;
+
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", Menlo, Consolas, monospace;
+    --measure: 68ch;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0e141b;
+      --surface: #161f28;
+      --surface-soft: #1d2831;
+      --surface-sunk: #222e38;
+      --ink: #e9eef1;
+      --ink-soft: #aab7c1;
+      --ink-mute: #7f8e99;
+      --line: #2c3944;
+      --line-soft: #24303a;
+
+      --s1: #e05a51; --s2: #e08b45; --s3: #d8b64c; --s4: #57ac67; --s5: #1fa585;
+      --s1-ink: #12080a; --s2-ink: #1a0f04; --s3-ink: #1a1604; --s4-ink: #08160b; --s5-ink: #04140f;
+
+      --good: #35b394; --warn: #e0a955; --bad: #e05a51;
+      --shadow-lg: 0 22px 50px -24px rgba(0, 0, 0, 0.7);
+      --shadow-sm: 0 2px 12px -4px rgba(0, 0, 0, 0.55);
+    }
+  }
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --ground: #f4f6f7; --surface: #ffffff; --surface-soft: #eef1f3; --surface-sunk: #e7ebee;
+    --ink: #16202a; --ink-soft: #4a5763; --ink-mute: #74838f; --line: #d8dee2; --line-soft: #e6eaed;
+    --s1: #d6483f; --s2: #e07f3c; --s3: #d9b23e; --s4: #63b06f; --s5: #178f74;
+    --s1-ink: #ffffff; --s2-ink: #2a1a08; --s3-ink: #2a2408; --s4-ink: #0d2410; --s5-ink: #ffffff;
+    --good: #178f74; --warn: #cf8b2a; --bad: #d6483f;
+    --shadow-lg: 0 18px 44px -22px rgba(16, 32, 42, 0.4);
+    --shadow-sm: 0 2px 10px -4px rgba(16, 32, 42, 0.22);
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #0e141b; --surface: #161f28; --surface-soft: #1d2831; --surface-sunk: #222e38;
+    --ink: #e9eef1; --ink-soft: #aab7c1; --ink-mute: #7f8e99; --line: #2c3944; --line-soft: #24303a;
+    --s1: #e05a51; --s2: #e08b45; --s3: #d8b64c; --s4: #57ac67; --s5: #1fa585;
+    --s1-ink: #12080a; --s2-ink: #1a0f04; --s3-ink: #1a1604; --s4-ink: #08160b; --s5-ink: #04140f;
+    --good: #35b394; --warn: #e0a955; --bad: #e05a51;
+    --shadow-lg: 0 22px 50px -24px rgba(0, 0, 0, 0.7);
+    --shadow-sm: 0 2px 12px -4px rgba(0, 0, 0, 0.55);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 3rem); }
+
+  h1, h2, h3, h4 { text-wrap: balance; line-height: 1.15; margin: 0; }
+  p { margin: 0; }
+  .prose { max-width: var(--measure); }
+  .prose p + p { margin-top: 0.85rem; }
+
+  .eyebrow {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--brand-teal-strong);
+  }
+  .kicker-line { display: inline-flex; align-items: center; gap: 0.55rem; }
+  .kicker-line::before { content: ""; width: 26px; height: 2px; background: var(--brand-orange); border-radius: 2px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    border-bottom: 1px solid var(--line);
+    background:
+      radial-gradient(120% 140% at 88% -10%, color-mix(in srgb, var(--brand-teal) 20%, transparent), transparent 55%),
+      radial-gradient(90% 120% at 6% 0%, color-mix(in srgb, var(--brand-teal-strong) 12%, transparent), transparent 50%),
+      var(--surface);
+  }
+  .hero-grid { padding: clamp(2.4rem, 6vw, 4.2rem) 0 clamp(2rem, 4vw, 3rem); display: grid; gap: 2rem; }
+  .hero h1 { font-size: clamp(1.9rem, 4.6vw, 3.15rem); font-weight: 800; letter-spacing: -0.02em; }
+  .hero h1 em { font-style: normal; color: var(--brand-teal-strong); }
+  .hero-lead { font-size: clamp(1.02rem, 1.9vw, 1.22rem); color: var(--ink-soft); max-width: 62ch; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; font-size: 0.82rem; color: var(--ink-mute); }
+  .hero-meta b { color: var(--ink-soft); font-weight: 600; }
+
+  /* ---------- Verdict banner ---------- */
+  .verdict {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.2rem 1.5rem; align-items: center;
+    background: var(--surface); border: 1px solid var(--line);
+    border-left: 5px solid var(--brand-teal);
+    border-radius: var(--radius); padding: 1.4rem 1.6rem; box-shadow: var(--shadow-sm);
+  }
+  .verdict-badge {
+    display: grid; place-content: center; text-align: center;
+    width: 108px; height: 108px; border-radius: 20px;
+    background: linear-gradient(150deg, var(--brand-teal), var(--brand-teal-strong));
+    color: #fff; box-shadow: 0 10px 24px -12px var(--brand-teal-strong);
+  }
+  .verdict-badge .num { font-size: 2rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+  .verdict-badge .lbl { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.92; margin-top: 0.25rem; }
+  .verdict h2 { font-size: 1.28rem; font-weight: 750; margin-bottom: 0.3rem; }
+  .verdict h2 span { color: var(--brand-teal-strong); }
+  .verdict p { color: var(--ink-soft); font-size: 0.96rem; max-width: 70ch; }
+
+  /* ---------- Section rhythm ---------- */
+  section { padding: clamp(2.2rem, 5vw, 3.6rem) 0; }
+  section + section { border-top: 1px solid var(--line-soft); }
+  .sec-head { margin-bottom: 1.6rem; }
+  .sec-head h2 { font-size: clamp(1.4rem, 2.8vw, 1.95rem); font-weight: 780; letter-spacing: -0.015em; margin: 0.5rem 0 0.55rem; }
+  .sec-head p { color: var(--ink-soft); max-width: var(--measure); }
+
+  /* ---------- Context "what exists today" ---------- */
+  .today-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+  .today-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
+    padding: 1.1rem 1.15rem; box-shadow: var(--shadow-sm);
+  }
+  .today-card .where { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-mute); }
+  .today-card h4 { font-size: 1.02rem; margin: 0.35rem 0 0.4rem; }
+  .today-card p { font-size: 0.86rem; color: var(--ink-soft); }
+  .today-card .flag { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.7rem; font-size: 0.76rem; font-weight: 650; }
+  .flag.risk { color: var(--bad); }
+  .flag.gap { color: var(--warn); }
+  .flag.ok { color: var(--good); }
+  .flag .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
+
+  .callout {
+    margin-top: 1.4rem; display: flex; gap: 0.9rem;
+    background: color-mix(in srgb, var(--brand-orange) 12%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--brand-orange) 40%, var(--line));
+    border-radius: var(--radius-sm); padding: 1rem 1.2rem;
+  }
+  .callout .bar { width: 4px; background: var(--brand-orange); border-radius: 3px; flex: none; }
+  .callout p { font-size: 0.9rem; color: var(--ink-soft); }
+  .callout b { color: var(--ink); }
+
+  /* ---------- Weights ---------- */
+  .weights { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.6rem 1.6rem; }
+  .weight-row { display: grid; grid-template-columns: 1fr auto; gap: 0.4rem 0.8rem; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid var(--line-soft); }
+  .weight-row .cname { font-size: 0.9rem; font-weight: 550; }
+  .weight-row .cnum { font-variant-numeric: tabular-nums; font-weight: 750; color: var(--brand-teal-strong); font-size: 0.9rem; }
+  .weight-row .cbar { grid-column: 1 / -1; height: 5px; border-radius: 3px; background: var(--surface-sunk); overflow: hidden; }
+  .weight-row .cbar i { display: block; height: 100%; background: linear-gradient(90deg, var(--brand-teal), var(--brand-teal-strong)); border-radius: 3px; }
+  .weight-row .cwhy { grid-column: 1 / -1; font-size: 0.78rem; color: var(--ink-mute); }
+
+  /* ---------- Matrix ---------- */
+  .matrix-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); background: var(--surface); }
+  table.matrix { border-collapse: collapse; width: 100%; min-width: 940px; font-size: 0.84rem; }
+  table.matrix thead th { position: sticky; top: 0; z-index: 2; }
+  table.matrix th, table.matrix td { padding: 0.5rem 0.5rem; text-align: center; }
+  table.matrix thead th.crit-h, table.matrix tbody th.crit {
+    text-align: left; position: sticky; left: 0; z-index: 3;
+    background: var(--surface); min-width: 220px; max-width: 240px;
+  }
+  table.matrix thead th {
+    background: var(--surface-soft); color: var(--ink);
+    border-bottom: 2px solid var(--line); font-weight: 700; font-size: 0.78rem;
+    vertical-align: bottom; line-height: 1.2;
+  }
+  table.matrix thead th.opt.win { background: color-mix(in srgb, var(--brand-teal) 22%, var(--surface-soft)); }
+  table.matrix thead th .optname { display: block; }
+  table.matrix thead th .optlet { display: block; font-size: 0.66rem; color: var(--ink-mute); font-weight: 600; margin-bottom: 0.2rem; letter-spacing: 0.05em; }
+  table.matrix tbody th.crit { font-weight: 600; font-size: 0.82rem; border-bottom: 1px solid var(--line-soft); }
+  table.matrix tbody th.crit .w { display: inline-block; margin-left: 0.4rem; font-size: 0.7rem; color: var(--ink-mute); font-weight: 600; font-variant-numeric: tabular-nums; }
+  table.matrix tbody td { border-bottom: 1px solid var(--line-soft); border-left: 1px solid var(--line-soft); }
+  table.matrix tbody tr:hover th.crit, table.matrix tbody tr:hover td { background: color-mix(in srgb, var(--brand-teal) 7%, var(--surface)); }
+  .cell { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 8px; font-weight: 750; font-variant-numeric: tabular-nums; font-size: 0.9rem; }
+  .cell.s1 { background: var(--s1); color: var(--s1-ink); }
+  .cell.s2 { background: var(--s2); color: var(--s2-ink); }
+  .cell.s3 { background: var(--s3); color: var(--s3-ink); }
+  .cell.s4 { background: var(--s4); color: var(--s4-ink); }
+  .cell.s5 { background: var(--s5); color: var(--s5-ink); }
+  table.matrix tfoot th, table.matrix tfoot td { padding: 0.7rem 0.5rem; border-top: 2px solid var(--line); }
+  table.matrix tfoot th.crit { text-align: left; position: sticky; left: 0; background: var(--surface); font-weight: 750; font-size: 0.9rem; }
+  table.matrix tfoot td { font-variant-numeric: tabular-nums; font-weight: 800; font-size: 1.05rem; background: var(--surface-soft); }
+  table.matrix tfoot td.win { background: color-mix(in srgb, var(--brand-teal) 24%, var(--surface)); color: var(--brand-teal-strong); }
+  table.matrix tfoot td .pct { display: block; font-size: 0.66rem; font-weight: 600; color: var(--ink-mute); }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.1rem; margin-top: 0.9rem; font-size: 0.76rem; color: var(--ink-soft); }
+  .legend .lg { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .legend .sw { width: 15px; height: 15px; border-radius: 4px; }
+
+  /* ---------- Ranking ---------- */
+  .rank-list { display: grid; gap: 0.55rem; }
+  .rank-item {
+    display: grid; grid-template-columns: 26px 1fr; gap: 0.9rem; align-items: center;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
+    padding: 0.7rem 1rem; box-shadow: var(--shadow-sm);
+  }
+  .rank-item.top { border-color: var(--brand-teal); border-left: 4px solid var(--brand-teal); }
+  .rank-pos { font-variant-numeric: tabular-nums; font-weight: 800; color: var(--ink-mute); text-align: center; }
+  .rank-item.top .rank-pos { color: var(--brand-teal-strong); }
+  .rank-body { display: grid; grid-template-columns: 1fr auto; gap: 0.15rem 1rem; align-items: baseline; }
+  .rank-name { font-weight: 650; font-size: 0.95rem; }
+  .rank-score { font-variant-numeric: tabular-nums; font-weight: 800; font-size: 1rem; }
+  .rank-track { grid-column: 1 / -1; height: 8px; border-radius: 5px; background: var(--surface-sunk); overflow: hidden; }
+  .rank-track i { display: block; height: 100%; border-radius: 5px; background: linear-gradient(90deg, var(--ink-mute), var(--ink-soft)); }
+  .rank-item.top .rank-track i { background: linear-gradient(90deg, var(--brand-teal), var(--brand-teal-strong)); }
+  .rank-tag { grid-column: 1 / -1; font-size: 0.78rem; color: var(--ink-mute); }
+
+  /* ---------- Option cards ---------- */
+  .opts { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.1rem; }
+  .opt-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 1.25rem 1.3rem 1.35rem; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 0.55rem;
+  }
+  .opt-card.win { border-color: var(--brand-teal); box-shadow: 0 0 0 1px var(--brand-teal), var(--shadow-sm); }
+  .opt-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.8rem; }
+  .opt-let { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: var(--ink-mute); }
+  .opt-card h3 { font-size: 1.1rem; font-weight: 720; margin-top: 0.1rem; }
+  .opt-score-pill {
+    flex: none; font-variant-numeric: tabular-nums; font-weight: 800; font-size: 0.9rem;
+    padding: 0.25rem 0.6rem; border-radius: 999px; background: var(--surface-sunk); color: var(--ink-soft);
+  }
+  .opt-card.win .opt-score-pill { background: var(--brand-teal); color: #fff; }
+  .opt-desc { font-size: 0.85rem; color: var(--ink-soft); }
+  .pc { display: grid; gap: 0.28rem; margin-top: 0.2rem; }
+  .pc .row { display: grid; grid-template-columns: 16px 1fr; gap: 0.5rem; font-size: 0.82rem; align-items: start; }
+  .pc .row .ic { font-weight: 800; line-height: 1.5; }
+  .pc .row.pro .ic { color: var(--good); }
+  .pc .row.con .ic { color: var(--bad); }
+  .pc .row span { color: var(--ink-soft); }
+  .opt-tag { margin-top: auto; font-size: 0.74rem; font-weight: 650; padding-top: 0.5rem; border-top: 1px solid var(--line-soft); color: var(--ink-mute); }
+  .opt-tag.win { color: var(--brand-teal-strong); }
+
+  /* ---------- Recommendation deep dive ---------- */
+  .rec { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-lg); overflow: hidden; }
+  .rec-head { padding: 1.5rem 1.7rem; background: linear-gradient(135deg, color-mix(in srgb, var(--brand-teal) 16%, var(--surface)), var(--surface)); border-bottom: 1px solid var(--line); }
+  .rec-head h3 { font-size: 1.35rem; font-weight: 780; }
+  .rec-head h3 span { color: var(--brand-teal-strong); }
+  .rec-head p { color: var(--ink-soft); margin-top: 0.4rem; max-width: 74ch; font-size: 0.95rem; }
+  .rec-body { padding: 1.5rem 1.7rem; display: grid; gap: 1.4rem; }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.9rem; }
+  .why {
+    background: var(--surface-soft); border-radius: var(--radius-sm); padding: 0.95rem 1.05rem; border: 1px solid var(--line-soft);
+  }
+  .why h4 { font-size: 0.9rem; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.45rem; }
+  .why h4::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--brand-teal); }
+  .why p { font-size: 0.82rem; color: var(--ink-soft); }
+
+  .balance { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+  .balance .side { border-radius: var(--radius-sm); padding: 1rem 1.15rem; border: 1px solid var(--line); }
+  .balance .side.for { background: color-mix(in srgb, var(--good) 9%, var(--surface)); border-color: color-mix(in srgb, var(--good) 35%, var(--line)); }
+  .balance .side.against { background: color-mix(in srgb, var(--warn) 10%, var(--surface)); border-color: color-mix(in srgb, var(--warn) 38%, var(--line)); }
+  .balance h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.55rem; }
+  .balance .for h4 { color: var(--good); }
+  .balance .against h4 { color: var(--warn); }
+  .balance ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.35rem; }
+  .balance li { font-size: 0.84rem; color: var(--ink-soft); }
+
+  /* ---------- Roadmap ---------- */
+  .phases { display: grid; gap: 0; counter-reset: ph; }
+  .phase { display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; padding: 0 0 1.5rem; position: relative; }
+  .phase::before {
+    counter-increment: ph; content: counter(ph);
+    grid-row: 1 / 3; width: 40px; height: 40px; border-radius: 50%; z-index: 1;
+    display: grid; place-content: center; font-weight: 800; font-variant-numeric: tabular-nums;
+    background: var(--brand-teal); color: #fff; box-shadow: 0 0 0 4px var(--ground);
+  }
+  .phase:not(:last-child)::after {
+    content: ""; position: absolute; left: 19px; top: 40px; bottom: 0; width: 2px; background: var(--line);
+  }
+  .phase-body { padding-top: 0.15rem; }
+  .phase-body h4 { font-size: 1.02rem; font-weight: 700; }
+  .phase-body .eta { font-size: 0.74rem; font-weight: 650; color: var(--brand-teal-strong); text-transform: uppercase; letter-spacing: 0.05em; }
+  .phase-body p { font-size: 0.86rem; color: var(--ink-soft); margin-top: 0.3rem; }
+  .phase-body ul { margin: 0.45rem 0 0; padding-left: 1.1rem; display: grid; gap: 0.25rem; }
+  .phase-body li { font-size: 0.83rem; color: var(--ink-soft); }
+  code {
+    font-family: var(--mono); font-size: 0.82em; background: var(--surface-sunk);
+    padding: 0.1em 0.42em; border-radius: 5px; color: var(--brand-teal-strong); font-weight: 600;
+  }
+
+  /* ---------- Risks ---------- */
+  .risks { display: grid; gap: 0.7rem; }
+  .risk {
+    display: grid; grid-template-columns: auto 1fr; gap: 0.9rem; align-items: start;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0.95rem 1.1rem;
+  }
+  .risk .sev { font-size: 0.66rem; font-weight: 750; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.22rem 0.5rem; border-radius: 6px; white-space: nowrap; margin-top: 0.1rem; }
+  .sev.med { background: color-mix(in srgb, var(--warn) 20%, var(--surface)); color: var(--warn); }
+  .sev.low { background: color-mix(in srgb, var(--good) 18%, var(--surface)); color: var(--good); }
+  .risk h4 { font-size: 0.9rem; margin-bottom: 0.2rem; }
+  .risk p { font-size: 0.82rem; color: var(--ink-soft); }
+  .risk p b { color: var(--ink); }
+
+  footer { border-top: 1px solid var(--line); padding: 1.8rem 0 2.4rem; color: var(--ink-mute); font-size: 0.8rem; }
+  footer .prose { display: grid; gap: 0.35rem; }
+
+  @media (max-width: 620px) {
+    .verdict { grid-template-columns: 1fr; text-align: left; }
+    .verdict-badge { width: 92px; height: 92px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow kicker-line">Análisis de decisión · Sprint · Tarea #6</span>
+      <h1 style="margin-top:0.7rem;">Matriz de conveniencia:<br><em>¿qué gestor documental</em> conviene al HRM?</h1>
+    </div>
+    <p class="hero-lead">Comparación ponderada de 8 alternativas reales para gestionar los documentos del HRM de Next Talent Solutions —contratos, documentos de empleado y firmas— con el foco puesto donde importa: <b>ahorrar recursos</b> sin perder cumplimiento legal ni el requisito de radicado <b>área + código + consecutivo</b>.</p>
+    <div class="hero-meta">
+      <span><b>Contexto:</b> ERP Frappe v14 + React · multi-tenant (1 site por cliente)</span>
+      <span><b>Infra:</b> Oracle Cloud · bench nativo · RAM ajustada</span>
+      <span><b>Firma:</b> DocuSeal autohospedado</span>
+      <span><b>Criterios:</b> 13 ponderados</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <div class="verdict">
+      <div class="verdict-badge">
+        <span class="num">95%</span>
+        <span class="lbl">Conveniencia</span>
+      </div>
+      <div>
+        <h2>Recomendación: consolidar en <span>Frappe nativo</span>, sin sumar un DMS externo.</h2>
+        <p>Un DocType <b>Documento</b> unificado con numeración por <b>Naming Series</b> (<code>ÁREA-DOC-.YYYY.-.####</code>), adjuntos en <b>File</b> privado, versionado y flujo de estados nativos, más traer el <b>PDF firmado de DocuSeal de vuelta al ERP</b>. Resuelve el radicado, cierra el hueco legal de custodia y no añade ni un servicio más que mantener. Ninguna otra opción ahorra tantos recursos por tan poco esfuerzo. La única concesión —búsqueda con OCR— se cubre después, y solo si se vuelve requisito real.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow kicker-line">Punto de partida</span>
+      <h2>Qué tiene el HRM hoy (y por qué la pregunta es urgente)</h2>
+      <p class="prose">Antes de comparar herramientas hay que ver el terreno. Hoy los documentos del HRM viven en <b>tres sitios distintos</b>, sin numeración de radicado y con una pieza legal fuera del ERP. Eso es lo que la matriz tiene que arreglar.</p>
+    </div>
+    <div class="today-grid">
+      <div class="today-card">
+        <span class="where">Contrato generado</span>
+        <h4>JSON dentro del DocType</h4>
+        <p>El contrato se guarda como blob <code>datos_contrato</code> (con <code>__firma_meta</code>). No es un archivo: no se versiona ni se descarga como documento.</p>
+        <span class="flag gap"><span class="dot"></span>Sin archivo binario</span>
+      </div>
+      <div class="today-card">
+        <span class="where">PDF firmado</span>
+        <h4>Solo en DocuSeal</h4>
+        <p>El documento firmado queda en DocuSeal; en el ERP solo hay un <code>submission_id</code>. La custodia del original firmado está fuera del sistema de registro.</p>
+        <span class="flag risk"><span class="dot"></span>Riesgo de custodia legal</span>
+      </div>
+      <div class="today-card">
+        <span class="where">Documento de empleado</span>
+        <h4>Frappe File suelto</h4>
+        <p>Se sube con <code>upload_file</code> a la carpeta de adjuntos, sin metadatos de área, sin consecutivo, sin flujo de retención asociado.</p>
+        <span class="flag gap"><span class="dot"></span>Sin metadatos ni radicado</span>
+      </div>
+      <div class="today-card">
+        <span class="where">Requisito del sprint</span>
+        <h4>Radicado área + código + consecutivo</h4>
+        <p>No existe hoy: cero <code>autoname</code> / <code>naming_series</code> en las apps. Frappe lo cubre de forma nativa con configuración, no con software nuevo.</p>
+        <span class="flag ok"><span class="dot"></span>Cubrible sin sumar servicios</span>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="bar" aria-hidden="true"></div>
+      <p><b>El verdadero problema no es "falta un DMS".</b> Es que la información está fragmentada y el firmado no está bajo custodia del ERP. Traer un producto externo grande resolvería una parte… agregando tres problemas nuevos: más RAM, más mantenimiento y otra base de datos que respaldar. Por eso la matriz pesa fuerte el costo de infraestructura y el esfuerzo de integración.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow kicker-line">Cómo se puntúa</span>
+      <h2>13 criterios ponderados</h2>
+      <p class="prose">Los pesos suman 100 y reflejan la prioridad explícita del sprint: <b>ahorrar recursos</b>. Infraestructura, operación e integración concentran el 41% del peso; el cumplimiento del radicado y la custodia legal aportan otro bloque decisivo. Cada opción se califica <b>1 (deficiente) a 5 (óptimo)</b> por criterio.</p>
+    </div>
+    <div class="weights" id="weights"></div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow kicker-line">La matriz</span>
+      <h2>Puntaje por criterio, las 8 opciones</h2>
+      <p class="prose">Lectura tipo mapa de calor: verde = fortaleza, rojo = debilidad. El total pondera cada celda por el peso del criterio. Se muestra ordenada de mayor a menor conveniencia.</p>
+    </div>
+    <div class="matrix-scroll">
+      <table class="matrix" id="matrix">
+        <thead><tr id="matrix-head"></tr></thead>
+        <tbody id="matrix-body"></tbody>
+        <tfoot><tr id="matrix-foot"></tr></tfoot>
+      </table>
+    </div>
+    <div class="legend">
+      <span class="lg"><span class="sw" style="background:var(--s1)"></span>1 · deficiente</span>
+      <span class="lg"><span class="sw" style="background:var(--s2)"></span>2 · limitado</span>
+      <span class="lg"><span class="sw" style="background:var(--s3)"></span>3 · aceptable</span>
+      <span class="lg"><span class="sw" style="background:var(--s4)"></span>4 · bueno</span>
+      <span class="lg"><span class="sw" style="background:var(--s5)"></span>5 · óptimo</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow kicker-line">Resultado</span>
+      <h2>Ranking de conveniencia</h2>
+      <p class="prose">La opción nativa se despega con claridad. Curiosamente, los subcampeones no son los DMS especializados sino el <b>SaaS en la nube</b> y el <b>statu quo</b>: útiles como referencia de por qué el nativo gana, no como ganadores.</p>
+    </div>
+    <div class="rank-list" id="ranking"></div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow kicker-line">Las 8 opciones, sin sesgo</span>
+      <h2>A favor y en contra de cada una</h2>
+      <p class="prose">Cada alternativa tiene un escenario donde sería la correcta. Aquí está lo bueno y lo malo de todas —incluida la recomendada— para que la decisión se sostenga sola.</p>
+    </div>
+    <div class="opts" id="opts"></div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow kicker-line">La recomendación en detalle</span>
+      <h2>Por qué gana Frappe nativo consolidado</h2>
+    </div>
+    <div class="rec">
+      <div class="rec-head">
+        <h3>Opción A · <span>Consolidación nativa en Frappe</span></h3>
+        <p>No es "no hacer nada": es construir el gestor documental <b>dentro</b> del ERP con piezas que Frappe ya trae —File, Naming Series, Version, Workflow y el RBAC multi-tenant— y cerrar el circuito trayendo el firmado desde DocuSeal. Todo el valor de un DMS, cero servicios nuevos.</p>
+      </div>
+      <div class="rec-body">
+        <div class="why-grid">
+          <div class="why"><h4>Ahorro real de recursos</h4><p>Reusa MariaDB, Redis y el disco que ya corren. Sin JVM, sin Solr, sin otro contenedor comiendo la RAM ajustada del Oracle Cloud.</p></div>
+          <div class="why"><h4>Radicado nativo</h4><p><code>ÁREA-DOC-.YYYY.-.####</code> con Naming Series entrega área + código + consecutivo automático, único y auditable, sin escribir lógica frágil.</p></div>
+          <div class="why"><h4>Cierra el hueco legal</h4><p>El PDF firmado vuelve al ERP como File privado con su Version. El sistema de registro pasa a custodiar el original, no un puntero.</p></div>
+          <div class="why"><h4>Un solo lugar, una sola curva</h4><p>El cliente PYME no aprende otra app ni cambia de pestaña: los documentos viven junto al empleado y al contrato que ya usa.</p></div>
+          <div class="why"><h4>Permisos que ya existen</h4><p>Hereda el RBAC por rol y el aislamiento multi-tenant. Nada de sincronizar identidades entre dos sistemas.</p></div>
+          <div class="why"><h4>Respaldo incluido</h4><p>Entra en el backup de Frappe hacia disco externo que ya está montado. Sin un segundo plan de respaldo que vigilar.</p></div>
+        </div>
+
+        <div class="balance">
+          <div class="side for">
+            <h4>Por qué sí</h4>
+            <ul>
+              <li>Máximo ahorro de infraestructura y operación de todas las opciones (5/5 en ambos).</li>
+              <li>Resuelve el requisito del sprint sin dependencias externas.</li>
+              <li>Time-to-value en días, no semanas: es configuración + un DocType.</li>
+              <li>Soberanía total de los datos, sin lock-in de proveedor.</li>
+            </ul>
+          </div>
+          <div class="side against">
+            <h4>Qué se concede (honestidad)</h4>
+            <ul>
+              <li>Sin OCR ni búsqueda full-text del contenido escaneado (3/5). Frappe busca por metadatos, no dentro del PDF.</li>
+              <li>Versionado y retención existen pero hay que <b>cablearlos</b> al TRD (<code>SgsstTablaRetencionDocumental</code>), no vienen listos.</li>
+              <li>Si el volumen documental creciera muchísimo, un objeto-store dedicado escalaría mejor el almacenamiento.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="bar" aria-hidden="true"></div>
+          <p><b>La única debilidad real —OCR/búsqueda— tiene salida sin rehacer nada.</b> Si mañana el cliente exige buscar "dentro" de los documentos escaneados, se añade <b>Paperless-ngx como complemento</b> (no como reemplazo): indexa y hace OCR mientras el ERP sigue siendo la fuente de verdad y el custodio legal. Se decide cuando sea un requisito, no antes: no se paga RAM por una función que quizá no se use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow kicker-line">Cómo se implementa</span>
+      <h2>Plan por fases</h2>
+      <p class="prose">Incremental y sin big-bang. Cada fase deja algo usable y no rompe lo que ya funciona.</p>
+    </div>
+    <div class="phases">
+      <div class="phase">
+        <div class="phase-body">
+          <span class="eta">Fase 1 · ~2–3 días</span>
+          <h4>DocType <code>Documento</code> + Naming Series</h4>
+          <p>Modelo unificado con campo <code>area</code> (Link a un catálogo de áreas) y autoname por serie.</p>
+          <ul>
+            <li>Serie <code>ÁREA-DOC-.YYYY.-.####</code> → radicado único y consecutivo por área/año.</li>
+            <li>Campos: área, tipo documental, empleado/contrato relacionado, estado, fecha, adjunto <code>File</code> privado.</li>
+            <li>Enlaces (Link) a <code>Empleado</code> y <code>Contrato Generado</code> para no duplicar datos.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-body">
+          <span class="eta">Fase 2 · ~2 días</span>
+          <h4>Traer el firmado de DocuSeal al ERP</h4>
+          <p>Al completar la firma, descargar el PDF final y adjuntarlo al <code>Documento</code> como File privado.</p>
+          <ul>
+            <li>Webhook / callback de DocuSeal → guarda el binario firmado + su hash.</li>
+            <li>El ERP pasa a ser custodio del original; DocuSeal queda como motor de firma, no como archivo.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-body">
+          <span class="eta">Fase 3 · ~2 días</span>
+          <h4>Versionado, estados y retención</h4>
+          <p>Activar <code>Version</code> y un Workflow de ciclo de vida (borrador → vigente → archivado) y enlazar el TRD.</p>
+          <ul>
+            <li>Conectar con <code>SgsstTablaRetencionDocumental</code> para calcular vencimientos de retención.</li>
+            <li>Permisos por rol reutilizando el RBAC existente; documentos privados por defecto.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-body">
+          <span class="eta">Fase 4 · opcional, bajo demanda</span>
+          <h4>OCR / búsqueda full-text (solo si se pide)</h4>
+          <p>Integrar Paperless-ngx como indexador complementario, manteniendo el ERP como fuente de verdad.</p>
+          <ul>
+            <li>Se evalúa cuando exista el requisito real y haya RAM disponible.</li>
+            <li>Alternativa ligera: extraer texto en el ingreso y guardarlo como campo buscable en el propio DocType.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow kicker-line">Lo que hay que vigilar</span>
+      <h2>Riesgos y mitigación</h2>
+    </div>
+    <div class="risks">
+      <div class="risk">
+        <span class="sev med">Medio</span>
+        <div>
+          <h4>El firmado no llega al ERP si falla el webhook</h4>
+          <p><b>Mitigación:</b> job de reconciliación que revisa firmas completadas en DocuSeal sin PDF en el ERP y las reintenta; alerta si un firmado lleva más de X horas sin custodiar.</p>
+        </div>
+      </div>
+      <div class="risk">
+        <span class="sev med">Medio</span>
+        <div>
+          <h4>Retención documental mal parametrizada</h4>
+          <p><b>Mitigación:</b> cargar el TRD real (Decreto 1072 / Res. 0312 para SG-SST) validado con el cliente antes de automatizar vencimientos; empezar con alertas, no con borrado.</p>
+        </div>
+      </div>
+      <div class="risk">
+        <span class="sev low">Bajo</span>
+        <div>
+          <h4>Crece la necesidad de buscar dentro del contenido</h4>
+          <p><b>Mitigación:</b> la Fase 4 ya está prevista; el diseño no cambia, solo se enchufa el indexador. No es una decisión que haya que tomar hoy.</p>
+        </div>
+      </div>
+      <div class="risk">
+        <span class="sev low">Bajo</span>
+        <div>
+          <h4>Volumen de almacenamiento a largo plazo</h4>
+          <p><b>Mitigación:</b> Frappe File admite mover el binario a un backend S3/MinIO sin cambiar el modelo; se difiere hasta que el disco lo justifique.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap prose">
+    <p><b>Matriz de conveniencia — Gestor documental HRM.</b> Análisis para la tarea #6 del sprint. Evaluación ponderada de 8 opciones frente a 13 criterios priorizados por ahorro de recursos.</p>
+    <p>Puntajes 1–5 asignados sobre el estado real del ERP (Frappe v14 + React, multi-tenant en Oracle Cloud, firma con DocuSeal). Los pesos son ajustables: si cambia la prioridad, cambia el ganador —pero con el foco en recursos, la consolidación nativa domina.</p>
+  </div>
+</footer>
+
+<script>
+  const CRITERIA = [
+    { name: "Costo de infraestructura (RAM/CPU/disco)", w: 18, why: "Prioridad #1: no comprar más servidor ni saturar la RAM." },
+    { name: "Ahorro operativo / menos servicios", w: 12, why: "Cada servicio nuevo es mantenimiento, parches y respaldo extra." },
+    { name: "Radicado: área + código + consecutivo", w: 11, why: "Requisito explícito del sprint; no existe hoy." },
+    { name: "Esfuerzo de integración (Frappe/RBAC)", w: 11, why: "Enganchar con empleado, contrato y permisos actuales." },
+    { name: "Custodia legal del firmado + auditoría", w: 9, why: "El original firmado debe vivir bajo el sistema de registro." },
+    { name: "Versionado + retención (TRD)", w: 8, why: "Ciclo de vida documental y cumplimiento normativo." },
+    { name: "Seguridad / permisos (reusa RBAC)", w: 7, why: "Sin duplicar identidades ni modelos de acceso." },
+    { name: "Tiempo a valor", w: 6, why: "Qué tan rápido resuelve el requisito real." },
+    { name: "Curva de aprendizaje (PYME)", w: 5, why: "Usuario final no técnico, una sola herramienta." },
+    { name: "Búsqueda / OCR / metadatos", w: 5, why: "Encontrar documentos, idealmente dentro del contenido." },
+    { name: "Escalabilidad multi-tenant", w: 4, why: "1 site por cliente; aislamiento y crecimiento." },
+    { name: "Soberanía de datos / lock-in", w: 3, why: "Control del dato y salida sin castigo." },
+    { name: "Backups / DR (reusa respaldo)", w: 1, why: "Entrar en el respaldo ya existente." }
+  ];
+
+  const OPTIONS = [
+    {
+      let: "A", name: "Frappe nativo (consolidado)", win: true,
+      desc: "DocType Documento + Naming Series + File + Version/Workflow + traer el firmado de DocuSeal.",
+      scores: [5,5,5,5,5,4,5,4,5,3,5,5,5],
+      pros: ["Cero servicios nuevos: reusa todo lo que ya corre", "Radicado nativo con Naming Series", "Cierra el hueco de custodia legal del firmado", "Misma UI, mismos permisos, mismo respaldo"],
+      cons: ["Sin OCR / búsqueda full-text del contenido", "Retención hay que cablearla al TRD"],
+      tag: "★ Recomendada — máximo ahorro por mínimo esfuerzo"
+    },
+    {
+      let: "H", name: "Cloud SaaS (SharePoint / Drive / DocuWare)", win: false,
+      desc: "Gestor documental gestionado por un proveedor externo, integrado vía API.",
+      scores: [3,4,3,2,4,4,2,3,3,5,4,1,4],
+      pros: ["Cero infraestructura propia que mantener", "Búsqueda y OCR de primer nivel", "Cumplimiento y retención maduros"],
+      cons: ["Costo recurrente por usuario, para siempre", "Lock-in fuerte y datos fuera del país/control", "Otra identidad y permisos que sincronizar"],
+      tag: "Buena si se aceptara costo mensual y datos externos"
+    },
+    {
+      let: "—", name: "Statu quo (DocuSeal + File suelto)", win: false,
+      desc: "Dejar todo como está: contrato en JSON, firmado en DocuSeal, adjuntos sueltos.",
+      scores: [5,4,1,4,2,1,4,3,3,1,4,4,3],
+      pros: ["Cero trabajo y cero infraestructura nueva", "Ya integrado con lo existente"],
+      cons: ["No cumple el requisito de radicado", "Deja el firmado fuera de custodia (riesgo legal)", "Sin versionado ni retención de documentos"],
+      tag: "Descartada: no resuelve el problema del sprint"
+    },
+    {
+      let: "G", name: "MinIO / S3 + capa de metadatos en ERP", win: false,
+      desc: "Almacén de objetos para los binarios y los metadatos/consecutivo dentro del ERP.",
+      scores: [3,3,3,3,3,4,3,2,2,2,4,5,3],
+      pros: ["Almacenamiento ligero y muy escalable", "Versionado y WORM nativos del objeto", "Estándar abierto, sin lock-in"],
+      cons: ["La lógica de radicado y permisos hay que construirla igual", "Sin UI de usuario final ni OCR de fábrica", "Otro componente que operar y respaldar"],
+      tag: "Tiene sentido solo a gran volumen de almacenamiento"
+    },
+    {
+      let: "C", name: "Paperless-ngx", win: false,
+      desc: "DMS OSS liviano orientado a digitalización y OCR full-text.",
+      scores: [2,2,3,2,4,3,2,2,2,5,2,5,2],
+      pros: ["OCR y búsqueda full-text excelentes (su fuerte)", "Open source, datos propios", "Comunidad activa y ligero para su categoría"],
+      cons: ["Otro servicio (Django+Redis+Tika) sobre RAM ajustada", "Mono-tenant: una instancia por cliente", "Radicado por área no es de fábrica; integración a construir"],
+      tag: "Ideal como complemento de OCR, no como base"
+    },
+    {
+      let: "D", name: "Mayan EDMS", win: false,
+      desc: "DMS OSS de gama media: metadatos, workflows, OCR, gabinetes.",
+      scores: [2,1,3,2,4,4,2,2,1,5,2,5,2],
+      pros: ["Metadatos, versionado y auditoría robustos", "OCR y clasificación potentes", "Open source"],
+      cons: ["Muchas piezas (Celery, colas) = alto mantenimiento", "Pesado para la infraestructura disponible", "Curva de aprendizaje alta para una PYME"],
+      tag: "Sobredimensionado para el tamaño del cliente"
+    },
+    {
+      let: "E", name: "Nextcloud / SeaFile", win: false,
+      desc: "Plataforma de archivos con sincronización, compartición y versionado.",
+      scores: [2,2,1,2,3,3,2,2,3,3,3,5,2],
+      pros: ["UI de archivos familiar", "Versionado de archivos incluido", "Open source, datos propios"],
+      cons: ["Es file-share, no gestor documental: sin radicado", "Retención y auditoría débiles", "Otro stack (PHP+DB+cron) que operar"],
+      tag: "Resuelve compartir, no gestionar documentos formales"
+    },
+    {
+      let: "F", name: "OpenKM / Alfresco CE", win: false,
+      desc: "DMS empresarial (JVM) con records management y búsqueda Solr.",
+      scores: [1,1,3,1,4,5,2,1,1,5,3,4,2],
+      pros: ["Records management y retención de nivel empresarial", "Búsqueda Solr + OCR muy completas", "Modelo documental muy rico"],
+      cons: ["JVM + Solr: el mayor consumo de RAM de todas", "Integración y curva más costosas", "Edición Community limitada / con upsell"],
+      tag: "Potente pero incompatible con 'ahorrar recursos'"
+    }
+  ];
+
+  const MAXW = Math.max(...CRITERIA.map(c => c.w));
+  const totalW = CRITERIA.reduce((a, c) => a + c.w, 0);
+
+  // Weights panel
+  const weightsEl = document.getElementById("weights");
+  CRITERIA.forEach(c => {
+    const row = document.createElement("div");
+    row.className = "weight-row";
+    row.innerHTML =
+      '<span class="cname">' + c.name + '</span>' +
+      '<span class="cnum">' + c.w + '</span>' +
+      '<span class="cbar"><i style="width:' + (c.w / MAXW * 100) + '%"></i></span>' +
+      '<span class="cwhy">' + c.why + '</span>';
+    weightsEl.appendChild(row);
+  });
+
+  // Totals
+  const totals = OPTIONS.map(o => o.scores.reduce((a, s, i) => a + s * CRITERIA[i].w, 0));
+  const maxTotal = totalW * 5;
+
+  // Matrix head
+  const head = document.getElementById("matrix-head");
+  head.innerHTML = '<th class="crit-h">Criterio <span style="font-weight:600;color:var(--ink-mute)">(peso)</span></th>' +
+    OPTIONS.map(o =>
+      '<th class="opt' + (o.win ? ' win' : '') + '"><span class="optlet">' + o.let + '</span><span class="optname">' + o.name + '</span></th>'
+    ).join("");
+
+  // Matrix body
+  const body = document.getElementById("matrix-body");
+  CRITERIA.forEach((c, ci) => {
+    const tr = document.createElement("tr");
+    let html = '<th class="crit">' + c.name + '<span class="w">' + c.w + '</span></th>';
+    OPTIONS.forEach(o => {
+      const s = o.scores[ci];
+      html += '<td><span class="cell s' + s + '" title="' + c.name + ': ' + s + '/5">' + s + '</span></td>';
+    });
+    tr.innerHTML = html;
+    body.appendChild(tr);
+  });
+
+  // Matrix foot
+  const foot = document.getElementById("matrix-foot");
+  foot.innerHTML = '<th class="crit">Total ponderado</th>' +
+    OPTIONS.map((o, i) => {
+      const pct = Math.round(totals[i] / maxTotal * 100);
+      return '<td class="' + (o.win ? 'win' : '') + '">' + (totals[i] / totalW).toFixed(2) +
+        '<span class="pct">' + pct + '%</span></td>';
+    }).join("");
+
+  // Ranking
+  const ranked = OPTIONS.map((o, i) => ({ o, t: totals[i] })).sort((a, b) => b.t - a.t);
+  const maxRank = ranked[0].t;
+  const rankEl = document.getElementById("ranking");
+  ranked.forEach((r, idx) => {
+    const pct = Math.round(r.t / maxTotal * 100);
+    const item = document.createElement("div");
+    item.className = "rank-item" + (idx === 0 ? " top" : "");
+    item.innerHTML =
+      '<div class="rank-pos">' + (idx + 1) + '</div>' +
+      '<div class="rank-body">' +
+        '<span class="rank-name">' + r.o.let + ' · ' + r.o.name + '</span>' +
+        '<span class="rank-score">' + pct + '%</span>' +
+        '<div class="rank-track"><i style="width:' + (r.t / maxRank * 100) + '%"></i></div>' +
+        '<span class="rank-tag">' + r.o.tag + '</span>' +
+      '</div>';
+    rankEl.appendChild(item);
+  });
+
+  // Option cards
+  const optsEl = document.getElementById("opts");
+  OPTIONS.forEach((o, i) => {
+    const pct = Math.round(totals[i] / maxTotal * 100);
+    const card = document.createElement("div");
+    card.className = "opt-card" + (o.win ? " win" : "");
+    let rows = "";
+    o.pros.forEach(p => rows += '<div class="row pro"><span class="ic">+</span><span>' + p + '</span></div>');
+    o.cons.forEach(p => rows += '<div class="row con"><span class="ic">−</span><span>' + p + '</span></div>');
+    card.innerHTML =
+      '<div class="opt-top"><div><span class="opt-let">Opción ' + o.let + '</span>' +
+      '<h3>' + o.name + '</h3></div><span class="opt-score-pill">' + pct + '%</span></div>' +
+      '<p class="opt-desc">' + o.desc + '</p>' +
+      '<div class="pc">' + rows + '</div>' +
+      '<div class="opt-tag' + (o.win ? ' win' : '') + '">' + o.tag + '</div>';
+    optsEl.appendChild(card);
+  });
+</script>
+
+</body>
+</html>
