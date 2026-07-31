@@ -138,12 +138,6 @@
   .flag.risk { color: var(--bad); } .flag.gap { color: var(--warn); } .flag.ok { color: var(--good); }
   .flag .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
 
-  .callout { margin-top: 1.4rem; display: flex; gap: 0.9rem; background: color-mix(in srgb, var(--brand-orange) 12%, var(--surface));
-    border: 1px solid color-mix(in srgb, var(--brand-orange) 40%, var(--line)); border-radius: var(--radius-sm); padding: 1rem 1.2rem; }
-  .callout .bar { width: 4px; background: var(--brand-orange); border-radius: 3px; flex: none; }
-  .callout p { font-size: 0.9rem; color: var(--ink-soft); }
-  .callout b { color: var(--ink); }
-
   .weights { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.6rem 1.6rem; }
   .weight-row { display: grid; grid-template-columns: 1fr auto; gap: 0.4rem 0.8rem; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid var(--line-soft); }
   .weight-row.new .cname::after { content: "nuevo"; font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #fff; background: var(--brand-orange); padding: 0.1rem 0.4rem; border-radius: 999px; margin-left: 0.45rem; vertical-align: middle; }
@@ -508,10 +502,6 @@
           </div>
         </div>
 
-        <div class="callout">
-          <div class="bar" aria-hidden="true"></div>
-          <p><b>Aclaración de ingeniería:</b> la preocupación de que “subir a Frappe pone lento el HRM” es cierta <b>solo si los archivos pasan por dentro del HRM</b>. Con el almacén de objetos y las URLs firmadas, el archivo <b>no</b> pasa por ahí — por eso la separación funciona y además queda liviana. “Separado” no obliga a un DMS pesado.</p>
-        </div>
       </div>
     </div>
   </section>
